@@ -16,8 +16,8 @@ interface HomeViewProps {
 const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onCtaClick }) => {
   return (
     <>
-      <Hero onCtaClick={onCtaClick} />
-      <ProblemSection />
+      <Hero onNavigate={onNavigate} onCtaClick={onCtaClick} />
+      <ProblemSection onNavigate={onNavigate} />
       <InsightSection />
       <Features />
       <TargetAudience />

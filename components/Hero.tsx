@@ -1,53 +1,56 @@
 
 import React from 'react';
+import { ViewType } from '../App';
 
 interface HeroProps {
   onCtaClick: () => void;
+  onNavigate: (view: ViewType) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
+const Hero: React.FC<HeroProps> = ({ onCtaClick, onNavigate }) => {
   return (
-    <section className="relative overflow-hidden bg-white pt-16 pb-24 lg:pt-32 lg:pb-40">
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40"></div>
+    <section className="relative overflow-hidden bg-white pt-16 pb-20 lg:pt-28 lg:pb-32">
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10 bg-blue-50 mb-6">
-            Pre-Product Pilot Phase: Now accepting early access partners in India
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-bold leading-6 text-blue-700 ring-1 ring-inset ring-blue-600/20 bg-blue-50 mb-8">
+            🎯 Special Pilot for MoFPI Grant Holders & Cold Storage Owners
           </div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl mb-6">
-            Audit-Ready Cold Chain Data, <span className="text-blue-600">Simplified.</span>
+          <h1 className="text-5xl font-black tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]">
+            Make Your Cold Storage <br/>
+            <span className="text-blue-600">"Audit-Proof"</span>
           </h1>
-          <p className="text-lg leading-8 text-slate-600 mb-10">
-            A unified compliance platform for food and pharma cold chain operators. Replace fragmented records with tamper-proof, verifiable data that makes audits effortless.
+          <p className="text-xl leading-relaxed text-slate-600 mb-12 max-w-2xl mx-auto font-medium">
+            Stop relying on manual logbooks. From <span className="text-slate-900 font-bold">Farm to Export</span>, we provide the tamper-proof records you need to keep your MoFPI grants safe and pass every inspection with confidence.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
             <button
               onClick={onCtaClick}
-              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all active:scale-95"
+              className="px-10 py-5 bg-blue-600 text-white text-lg font-bold rounded-2xl shadow-2xl shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all active:scale-95"
             >
-              Join the Early Access Program
+              Apply for Pilot Access
             </button>
-            <a
-              href="#problem"
-              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 font-semibold rounded-xl hover:bg-slate-50 transition-all"
+            <button
+              onClick={() => onNavigate('approach')}
+              className="px-10 py-5 bg-white text-slate-700 border-2 border-slate-200 text-lg font-bold rounded-2xl hover:bg-slate-50 transition-all shadow-sm"
             >
-              Understand the Problem
-            </a>
+              See Our "Farm to Export" Plan
+            </button>
           </div>
           
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-50 grayscale">
-            <div className="flex items-center justify-center p-4 border border-slate-100 rounded-lg bg-slate-50/50">
-              <span className="text-sm font-semibold">PHARMA COMPLIANT</span>
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-2xl">📜</span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">MoFPI Compliant</span>
             </div>
-            <div className="flex items-center justify-center p-4 border border-slate-100 rounded-lg bg-slate-50/50">
-              <span className="text-sm font-semibold">GDPR READY</span>
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-2xl">🛡️</span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Grant Safety</span>
             </div>
-            <div className="flex items-center justify-center p-4 border border-slate-100 rounded-lg bg-slate-50/50">
-              <span className="text-sm font-semibold">ISO ALIGNED</span>
-            </div>
-            <div className="flex items-center justify-center p-4 border border-slate-100 rounded-lg bg-slate-50/50">
-              <span className="text-sm font-semibold">TAMPER-PROOF</span>
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-2xl">📦</span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Seed to Shipment</span>
             </div>
           </div>
         </div>
