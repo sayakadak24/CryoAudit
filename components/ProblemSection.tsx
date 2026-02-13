@@ -11,59 +11,50 @@ const ProblemSection: React.FC<ProblemSectionProps> = ({ onNavigate }) => {
     <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center mb-16">
-          <h2 className="text-sm font-black leading-7 text-blue-600 uppercase tracking-[0.2em]">The Big Headache</h2>
-          <p className="mt-4 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
-            Why Audits Feel Like a Nightmare
+          <h2 className="text-base font-semibold leading-7 text-blue-600 uppercase tracking-wide">The Challenge</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Why Cold Chain Audits Are Fragile
           </p>
-          <p className="mt-6 max-w-2xl text-xl text-slate-600 lg:mx-auto font-medium">
-            Running a cold storage is hard. Proving you did it right to auditors and the Ministry is even harder.
+          <p className="mt-4 max-w-2xl text-lg text-slate-600 lg:mx-auto">
+            Traditional data logging leaves gaps in the chain of custody, making regulatory compliance a manual and high-risk burden.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-8 text-3xl">
-              ✍️
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
-            <h3 className="text-xl font-black text-slate-900 mb-4">Manual Logbook Mess</h3>
-            <p className="text-slate-600 leading-relaxed font-medium">
-              Relying on staff to write down temperatures every hour? It's slow, prone to mistakes, and auditors don't trust hand-written logs anymore.
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Fragmented Data</h3>
+            <p className="text-slate-600 leading-relaxed text-sm">
+              Sensor data exists in silos. When auditors ask for a unified report, operators spend days manually reconciling logs from multiple sources.
             </p>
           </div>
 
-          <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-8 text-3xl">
-              😱
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
             </div>
-            <h3 className="text-xl font-black text-slate-900 mb-4">Audit Panic</h3>
-            <p className="text-slate-600 leading-relaxed font-medium">
-              When an auditor visits, your team spends days digging through old files and spreadsheets. One missing page can cost you your grant or certification.
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Editable Records</h3>
+            <p className="text-slate-600 leading-relaxed text-sm">
+              Spreadsheets and manual entries lack trust. Auditors increasingly reject editable logs that lack a cryptographically secure audit trail.
             </p>
           </div>
 
-          <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-8 text-3xl">
-              💸
+          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
             </div>
-            <h3 className="text-xl font-black text-slate-900 mb-4">Rejected Claims</h3>
-            <p className="text-slate-600 leading-relaxed font-medium">
-              In case of a gas leak or power failure, if your data is "editable" (like Excel), insurance companies and exporters will refuse to pay your claims.
+            <h3 className="text-lg font-bold text-slate-900 mb-3">Delayed Compliance</h3>
+            <p className="text-slate-600 leading-relaxed text-sm">
+              Compliance is currently treated as an after-the-fact event. Real-time deviations are often missed until the audit cycle begins.
             </p>
-          </div>
-        </div>
-        
-        <div className="mt-20 p-10 bg-slate-900 rounded-[2.5rem] text-white overflow-hidden relative">
-          <div className="absolute top-0 right-0 p-10 text-8xl opacity-10 grayscale pointer-events-none">🏛️</div>
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
-            <div className="flex-1">
-              <h4 className="text-3xl font-black mb-6">Special Note for MoFPI Grant Holders</h4>
-              <p className="text-slate-300 text-lg leading-relaxed font-medium mb-6">
-                The Ministry now requires <strong>tamper-proof digital records</strong> for cold chain subsidies. If your data can be edited or deleted, your grant is at risk. CryoAudit locks your data the moment it's captured.
-              </p>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/30 border border-blue-500/50 rounded-xl text-blue-300 text-sm font-bold uppercase tracking-widest">
-                Grant Protection Protocol Active
-              </div>
-            </div>
           </div>
         </div>
       </div>
