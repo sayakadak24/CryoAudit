@@ -1,13 +1,12 @@
 
 import React from 'react';
-import { ViewType } from '../App';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   onCtaClick: () => void;
-  onNavigate: (view: ViewType) => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onCtaClick, onNavigate }) => {
+const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
   return (
     <section className="relative overflow-hidden bg-white pt-16 pb-20 lg:pt-28 lg:pb-32">
       <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
@@ -31,12 +30,12 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick, onNavigate }) => {
             >
               Apply for Pilot Access
             </button>
-            <button
-              onClick={() => onNavigate('approach')}
-              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all"
+            <Link
+              to="/approach"
+              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
             >
               View Our Approach
-            </button>
+            </Link>
           </div>
           
           <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">

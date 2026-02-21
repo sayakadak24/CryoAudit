@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import HomeView from './views/HomeView';
 import ProblemView from './views/ProblemView';
@@ -8,51 +9,32 @@ import BrochureView from './views/BrochureView';
 import PilotForm from './components/PilotForm';
 import Footer from './components/Footer';
 
-export type ViewType = 'home' | 'problem' | 'approach' | 'brochure';
-
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<ViewType>('home');
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const location = useLocation();
 
   const toggleForm = () => setIsFormOpen(!isFormOpen);
-  const navigateTo = (view: ViewType) => {
-    setCurrentView(view);
-    window.scrollTo(0, 0);
-  };
-
-  // Simple "routing" based on hash or state
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      if (['home', 'problem', 'approach', 'brochure'].includes(hash)) {
-        setCurrentView(hash as ViewType);
-      }
-    };
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
 
   return (
     <div className="min-h-screen flex flex-col selection:bg-blue-100">
       <Header 
-        currentView={currentView} 
-        onNavigate={navigateTo} 
         onCtaClick={toggleForm} 
       />
       
       <main className="flex-grow">
-        {currentView === 'home' && <HomeView onNavigate={navigateTo} onCtaClick={toggleForm} />}
-        {currentView === 'problem' && <ProblemView onCtaClick={toggleForm} />}
-        {currentView === 'approach' && <ApproachView onCtaClick={toggleForm} />}
-        {currentView === 'brochure' && <BrochureView onCtaClick={toggleForm} />}
+        <Routes>
+          <Route path="/" element={<HomeView onCtaClick={toggleForm} />} />
+          <Route path="/problem" element={<ProblemView onCtaClick={toggleForm} />} />
+          <Route path="/approach" element={<ApproachView onCtaClick={toggleForm} />} />
+          <Route path="/brochure" element={<BrochureView onCtaClick={toggleForm} />} />
+        </Routes>
         
         <div id="pilot">
           <PilotForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
         </div>
       </main>
 
-      <Footer onNavigate={navigateTo} />
+      <Footer />
     </div>
   );
 };

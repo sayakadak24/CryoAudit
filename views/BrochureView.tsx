@@ -118,7 +118,8 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
             <p className="text-slate-600">How we outperform traditional accountant-based systems.</p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-xl">
+          {/* Desktop View */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-slate-200 shadow-xl">
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-slate-900 text-white">
@@ -159,6 +160,45 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile View */}
+          <div className="md:hidden space-y-6">
+            {[
+              { area: "Data Integrity", trad: "Editable files, internal databases", cryo: "Tamper-evident, cryptographically secured records" },
+              { area: "Audit Readiness", trad: "Manual preparation before inspections", cryo: "Always audit-ready, instantly verifiable" },
+              { area: "Data Retrieval", trad: "Manual Excel reports", cryo: "Instant WhatsApp-based querying" },
+              { area: "Employee Dependency", trad: "3–4 people managing records", cryo: "Automation reduces manpower load" },
+              { area: "Fraud Prevention", trad: "Edits often untraceable", cryo: "Full timestamp & modification tracking" },
+              { area: "Multi-Branch Management", trad: "Fragmented reports", cryo: "Unified cross-branch dashboard" },
+              { area: "Operational Insight", trad: "Raw data only", cryo: "Analytics-driven insights & predictions" },
+              { area: "Energy Optimization", trad: "Manual cost tracking", cryo: "Energy efficiency analysis per MT" },
+              { area: "Revenue Signaling", trad: "No structured visibility", cryo: "Verified performance metrics for exporters" },
+              { area: "Market Positioning", trad: "Cost center", cryo: "Performance-certified facility" },
+              { area: "Data Portability", trad: "Risky migration", cryo: "Structured, encrypted, exportable data" }
+            ].map((row, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+                <div className="bg-slate-900 p-4 text-white font-bold text-sm">
+                  {row.area}
+                </div>
+                <div className="p-5 space-y-4">
+                  <div>
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Traditional System</div>
+                    <div className="flex items-start gap-2 text-slate-600 text-sm">
+                      <XCircle className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
+                      <span>{row.trad}</span>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t border-slate-100">
+                    <div className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-2">CryoTrack Advantage</div>
+                    <div className="flex items-start gap-2 text-blue-900 font-medium text-sm">
+                      <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span>{row.cryo}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

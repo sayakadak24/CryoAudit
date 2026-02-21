@@ -6,18 +6,17 @@ import InsightSection from '../components/InsightSection';
 import Features from '../components/Features';
 import TargetAudience from '../components/TargetAudience';
 import ComparisonSection from '../components/ComparisonSection';
-import { ViewType } from '../App';
+import { Link } from 'react-router-dom';
 
 interface HomeViewProps {
-  onNavigate: (view: ViewType) => void;
   onCtaClick: () => void;
 }
 
-const HomeView: React.FC<HomeViewProps> = ({ onNavigate, onCtaClick }) => {
+const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
   return (
     <>
-      <Hero onNavigate={onNavigate} onCtaClick={onCtaClick} />
-      <ProblemSection onNavigate={onNavigate} />
+      <Hero onCtaClick={onCtaClick} />
+      <ProblemSection />
       <InsightSection />
       <Features />
       <TargetAudience />

@@ -1,12 +1,8 @@
 
 import React from 'react';
-import { ViewType } from '../App';
+import { Link } from 'react-router-dom';
 
-interface FooterProps {
-  onNavigate: (view: ViewType) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-900 pt-16 pb-8 text-slate-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,10 +22,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h4 className="text-white font-bold mb-6">Explore</h4>
             <ul className="space-y-4 text-sm">
-              <li><button onClick={() => onNavigate('home')} className="hover:text-white transition-colors">Platform Overview</button></li>
-              <li><button onClick={() => onNavigate('problem')} className="hover:text-white transition-colors">The Problem</button></li>
-              <li><button onClick={() => onNavigate('approach')} className="hover:text-white transition-colors">Our Approach</button></li>
-              <li><button onClick={() => onNavigate('brochure')} className="hover:text-white transition-colors">Technical Brochure</button></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Platform Overview</Link></li>
+              <li><Link to="/problem" className="hover:text-white transition-colors">The Problem</Link></li>
+              <li><Link to="/approach" className="hover:text-white transition-colors">Our Approach</Link></li>
+              <li><Link to="/brochure" className="hover:text-white transition-colors">Technical Brochure</Link></li>
               <li><a href="#pilot" className="hover:text-white transition-colors">Early Access</a></li>
             </ul>
           </div>
@@ -37,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h4 className="text-white font-bold mb-6">Contact</h4>
             <ul className="space-y-4 text-sm">
-              <li><button onClick={() => onNavigate('home')} className="hover:text-white transition-colors">Our Vision</button></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Our Vision</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Pilot Partnership</a></li>
             </ul>
