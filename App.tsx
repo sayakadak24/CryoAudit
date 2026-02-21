@@ -4,10 +4,11 @@ import Header from './components/Header';
 import HomeView from './views/HomeView';
 import ProblemView from './views/ProblemView';
 import ApproachView from './views/ApproachView';
+import BrochureView from './views/BrochureView';
 import PilotForm from './components/PilotForm';
 import Footer from './components/Footer';
 
-export type ViewType = 'home' | 'problem' | 'approach';
+export type ViewType = 'home' | 'problem' | 'approach' | 'brochure';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -23,7 +24,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      if (['home', 'problem', 'approach'].includes(hash)) {
+      if (['home', 'problem', 'approach', 'brochure'].includes(hash)) {
         setCurrentView(hash as ViewType);
       }
     };
@@ -44,6 +45,7 @@ const App: React.FC = () => {
         {currentView === 'home' && <HomeView onNavigate={navigateTo} onCtaClick={toggleForm} />}
         {currentView === 'problem' && <ProblemView onCtaClick={toggleForm} />}
         {currentView === 'approach' && <ApproachView onCtaClick={toggleForm} />}
+        {currentView === 'brochure' && <BrochureView onCtaClick={toggleForm} />}
         
         <div id="pilot">
           <PilotForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />

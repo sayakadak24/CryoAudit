@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onCtaClick }) 
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <div className="w-4 h-4 border-2 border-white rotate-45" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">CryoAudit</span>
+            <span className="text-xl font-bold tracking-tight text-slate-900">CryoTrack</span>
           </button>
           
           <nav className="hidden md:flex items-center space-x-8">
@@ -35,6 +35,12 @@ const Header: React.FC<HeaderProps> = ({ currentView, onNavigate, onCtaClick }) 
               className={`text-sm font-medium transition-colors ${currentView === 'approach' ? 'text-blue-600' : 'text-slate-600 hover:text-blue-600'}`}
             >
               Our Approach
+            </button>
+            <button 
+              onClick={() => onNavigate('brochure')} 
+              className={`text-sm font-medium transition-colors ${currentView === 'brochure' ? 'text-blue-600' : 'text-slate-600 hover:text-blue-600'}`}
+            >
+              Brochure
             </button>
             <button 
               onClick={() => onNavigate('home')} 

@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <div className="w-4 h-4 border-2 border-white rotate-45" />
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">CryoAudit</span>
+              <span className="text-xl font-bold tracking-tight text-white">CryoTrack</span>
             </div>
             <p className="max-w-md mb-8 leading-relaxed">
               Building the future of cold chain data integrity. Our mission is to make compliance transparent, verifiable, and automatic for operators worldwide.
@@ -29,6 +29,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li><button onClick={() => onNavigate('home')} className="hover:text-white transition-colors">Platform Overview</button></li>
               <li><button onClick={() => onNavigate('problem')} className="hover:text-white transition-colors">The Problem</button></li>
               <li><button onClick={() => onNavigate('approach')} className="hover:text-white transition-colors">Our Approach</button></li>
+              <li><button onClick={() => onNavigate('brochure')} className="hover:text-white transition-colors">Technical Brochure</button></li>
               <li><a href="#pilot" className="hover:text-white transition-colors">Early Access</a></li>
             </ul>
           </div>
@@ -44,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
         
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium uppercase tracking-widest">
-          <p>© 2024 CryoAudit. Pilot Program Phase.</p>
+          <p>© 2024 CryoTrack. Pilot Program Phase.</p>
           <div className="flex items-center gap-6">
             <span className="text-blue-500 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
