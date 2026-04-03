@@ -1,136 +1,167 @@
 
 import React from 'react';
+import { motion } from 'motion/react';
+import { AlertTriangle, TrendingDown, Users, ShieldAlert, Activity, FileWarning, CheckCircle2 } from 'lucide-react';
 
 interface ProblemViewProps {
   onCtaClick: () => void;
 }
 
 const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
+  const stats = [
+    { label: "Market Digitized", value: "6%", icon: <Activity className="w-5 h-5" /> },
+    { label: "Unorganized Logistics", value: "90%", icon: <Users className="w-5 h-5" /> },
+    { label: "Agri Production Loss", value: "40%", icon: <TrendingDown className="w-5 h-5" /> },
+    { label: "Manual Entry Error", value: "1-5%", icon: <FileWarning className="w-5 h-5" /> }
+  ];
+
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
+      <section className="pt-24 pb-20 bg-slate-50 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-blue-600 font-bold text-sm mb-4">
-              <span className="uppercase tracking-widest">Deep Dive</span>
-              <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
-              <span>Compliance Analysis</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-200 text-red-600 text-xs font-bold uppercase tracking-widest mb-6">
+              <AlertTriangle className="w-3 h-3" />
+              The Infrastructure Gap
             </div>
-            <h1 className="text-4xl font-extrabold text-slate-900 sm:text-5xl mb-6">
-              Understanding the Cold Chain <span className="text-red-600">Compliance Gap</span>
+            <h1 className="text-4xl font-extrabold text-slate-900 sm:text-6xl mb-6 leading-tight">
+              India's <span className="text-red-600">Fragile</span> Supply Chain.
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              Why traditional data loggers, generic spreadsheets, and legacy ERPs leave cold chain operators exposed to regulatory failure and client rejections.
+              From farmers to local Kiranas, 90% of India's logistics remain unorganized. 
+              This fragmentation creates a lethal vulnerability: **Garbage In, Garbage Out (GIGO).**
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Content Deep Dive */}
+      {/* Stats Grid */}
+      <section className="py-12 -mt-10 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {stats.map((stat, idx) => (
+              <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="text-blue-600 mb-3">{stat.icon}</div>
+                <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
+                <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Dive Content */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-8 space-y-20">
               
-              {/* Section 1 */}
+              {/* GIGO Section */}
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-600 text-sm font-bold">1</span>
-                  The Problem of Disconnected Systems
+                <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                  The GIGO Vulnerability
                 </h2>
                 <div className="prose prose-slate prose-lg max-w-none text-slate-600">
                   <p className="mb-6">
-                    Cold chain operators face a structural problem: <strong>Data is captured by one vendor (sensors or loggers)</strong>, while records are stored in spreadsheets or generic accounting tools, and audits are conducted by a third party.
+                    Even when data is digitized, it relies on manual entry by logistics personnel or IoT devices which can be compromised. 
+                    In Cold Storage logistics, <strong>70% still rely on manual logging</strong>.
                   </p>
-                  <p className="mb-6">
-                    This fragmentation leads to:
+                  <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-2xl">
+                    <p className="text-red-900 font-medium italic">
+                      "To avoid penalties or losing their jobs, workers fake manual logs—writing down that the temperature was fine even if the power went out—feeding garbage into the system."
+                    </p>
+                  </div>
+                  <p>
+                    This leaves 88% to 90% of operational time without logging, creating a dangerous "false sense of security."
                   </p>
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5 flex-shrink-0"></div>
-                      <span><strong>Repeated Data Requests:</strong> Auditors ask for data you've already captured, but in a format you don't have.</span>
-                    </li>
-                    <li className="flex gap-4 items-start bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5 flex-shrink-0"></div>
-                      <span><strong>Manual Prep Fatigue:</strong> Your team spends hundreds of man-hours every year just "getting the data ready" for a visit.</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
 
-              {/* Section 2 */}
+              {/* Fatal Consequences */}
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-100 text-red-600 text-sm font-bold">2</span>
-                  The Liability of Editable Records
-                </h2>
-                <div className="prose prose-slate prose-lg max-w-none text-slate-600">
-                  <p className="mb-6">
-                    In regulated food and pharmaceutical environments, <strong>integrity is everything</strong>. Because spreadsheets and ERP logs are editable, they carry an inherent "lack of trust" during:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div className="p-6 border border-slate-200 rounded-2xl shadow-sm">
-                      <h4 className="font-bold text-slate-900 mb-2">Insurance Claims</h4>
-                      <p className="text-sm">When cargo is damaged, insurers look for every reason to deny a claim. Unverifiable data is the easiest target.</p>
+                <h2 className="text-3xl font-bold text-slate-900 mb-8">Fatal Consequences</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="p-8 bg-slate-900 text-white rounded-3xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 blur-2xl rounded-full"></div>
+                    <h4 className="text-xl font-bold mb-4">The Gambia (2022)</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                      70+ children died. The supply chain was robust on paper, but the data was falsified at the source.
+                    </p>
+                    <div className="text-xs font-bold text-red-400 uppercase tracking-widest">GIGO Breach</div>
+                  </div>
+                  <div className="p-8 bg-slate-900 text-white rounded-3xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/10 blur-2xl rounded-full"></div>
+                    <h4 className="text-xl font-bold mb-4">Ramnagar (2020)</h4>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                      17 children died after consuming contaminated syrup. Industrial-grade chemicals were passed off as pharma-grade.
+                    </p>
+                    <div className="text-xs font-bold text-red-400 uppercase tracking-widest">Manual Entry Fraud</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Limitations of Current Solutions */}
+              <div>
+                <h2 className="text-3xl font-bold text-slate-900 mb-8">Why Current Solutions Fail</h2>
+                <div className="space-y-6">
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+                      <ShieldAlert className="w-6 h-6 text-slate-400" />
                     </div>
-                    <div className="p-6 border border-slate-200 rounded-2xl shadow-sm">
-                      <h4 className="font-bold text-slate-900 mb-2">Regulatory Inspections</h4>
-                      <p className="text-sm">Agencies like FSSAI or CDSCO require proof that data hasn't been back-filled or modified after a deviation occurred.</p>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Hardware Dependency</h4>
+                      <p className="text-slate-600">Reliance on expensive, enterprise-grade IoT devices that are not cost-effective for India's 6.3 crore MSMEs.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center flex-shrink-0">
+                      <ShieldAlert className="w-6 h-6 text-slate-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">Trust Assumption</h4>
+                      <p className="text-slate-600">Data integrity depends entirely on the source's honesty. There is no structural mechanism to challenge or verify data at the handoff.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Section 3 */}
-              <div className="bg-slate-900 rounded-3xl p-10 text-white shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 blur-3xl rounded-full"></div>
-                <h3 className="text-2xl font-bold mb-4">The Real Cost of Fractional Solutions</h3>
-                <p className="text-slate-300 leading-relaxed mb-6">
-                  Despite paying multiple vendors for loggers and storage, <strong>the operator still carries all the risk</strong>. If the data is questioned or an audit fails, the vendor who sold you the hardware isn't the one who pays the price.
-                </p>
-                <div className="flex items-center gap-4 py-4 border-t border-slate-800">
-                  <div className="text-blue-400 font-bold">CryoAudit Insight:</div>
-                  <div className="text-sm text-slate-400">If the system capturing data is different from the system auditing it, records will always be subjective.</div>
-                </div>
-              </div>
-
             </div>
 
-            {/* Sticky Sidebar */}
+            {/* Sidebar */}
             <div className="lg:col-span-4">
               <div className="sticky top-24 space-y-6">
-                <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8">
-                  <h4 className="text-lg font-bold text-blue-900 mb-4">India Context</h4>
-                  <p className="text-sm text-blue-800/70 mb-6 leading-relaxed">
-                    With tightening norms for pharma logistics (GSP) and food export requirements (APEDA), manual data management is becoming a critical business liability.
+                <div className="bg-blue-600 rounded-3xl p-8 text-white shadow-xl">
+                  <h4 className="text-xl font-bold mb-4">The CryoTrack Shift</h4>
+                  <p className="text-blue-100 text-sm leading-relaxed mb-6">
+                    We don't just record data; we enforce its integrity through protocol-level game theory.
                   </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-center gap-2 text-xs font-bold text-blue-700">
-                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
-                      ELIMINATE MANUAL LOGGING
+                  <ul className="space-y-4">
+                    <li className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-blue-300" />
+                      Zero-Friction Adoption
                     </li>
-                    <li className="flex items-center gap-2 text-xs font-bold text-blue-700">
-                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
-                      SECURE AUDIT TRAILS
+                    <li className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-blue-300" />
+                      Immutable Audit Trails
                     </li>
-                    <li className="flex items-center gap-2 text-xs font-bold text-blue-700">
-                      <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>
-                      REDUCE CLAIM DISPUTES
+                    <li className="flex items-center gap-3 text-sm font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-blue-300" />
+                      100% Liability Transfer
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8">
+                <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8">
                   <h4 className="font-bold text-slate-900 mb-4">Next Step</h4>
                   <p className="text-sm text-slate-600 mb-6">
-                    See how our compliance-first approach solves these structural problems.
+                    See how our Checkpoint Mechanism solves the GIGO problem.
                   </p>
                   <button 
                     onClick={onCtaClick}
-                    className="w-full py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 transition-all active:scale-95"
+                    className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg hover:bg-slate-800 transition-all"
                   >
-                    Discuss Your Compliance
+                    Discuss Your Use Case
                   </button>
                 </div>
               </div>

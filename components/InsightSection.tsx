@@ -1,39 +1,104 @@
 
 import React from 'react';
+import { motion } from 'motion/react';
+import { ShieldCheck, ArrowRightLeft, Lock } from 'lucide-react';
 
 const InsightSection: React.FC = () => {
+  const steps = [
+    {
+      icon: <ShieldCheck className="w-6 h-6 text-[#00e5ff]" />,
+      title: "IoT Edge Capture",
+      description: "Sensors stream encrypted data directly to the CryoTrack node. No manual entry possible."
+    },
+    {
+      icon: <ArrowRightLeft className="w-6 h-6 text-[#00e5ff]" />,
+      title: "Liability Handoff",
+      description: "At every transfer point, the receiver cryptographically accepts the previous leg's data."
+    },
+    {
+      icon: <Lock className="w-6 h-6 text-[#00e5ff]" />,
+      title: "Immutable Proof",
+      description: "Data is hashed and anchored to the blockchain, creating a permanent, audit-ready record."
+    }
+  ];
+
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 rounded-[2.5rem] overflow-hidden shadow-2xl relative">
-          <div className="absolute top-0 right-0 p-8 opacity-20">
-            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 10L90 90M90 10L10 90" stroke="white" strokeWidth="2" strokeDasharray="4 4" />
-            </svg>
-          </div>
-          
-          <div className="px-8 py-16 md:px-16 md:py-24 max-w-4xl">
-            <h2 className="text-blue-400 font-semibold tracking-wide uppercase text-sm mb-4">Our Core Insight</h2>
-            <p className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-              Compliance cannot be added <span className="text-blue-500">after the fact.</span>
+    <section id="how" className="py-24 px-6 lg:px-12 bg-[#05090f] relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_50%,rgba(0,229,255,0.05)_0%,transparent_50%)] pointer-events-none"></div>
+      
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-[#00e5ff] font-display text-[0.7rem] tracking-[0.2em] uppercase mb-4">How It Works</div>
+            <h2 className="font-display font-extrabold text-[2.5rem] lg:text-[3.5rem] text-white leading-tight mb-8">
+              The Checkpoint <span className="text-[#00e5ff]">Mechanism</span>
+            </h2>
+            <p className="text-[#6a8fa3] font-light text-[1.1rem] leading-relaxed mb-12">
+              We replace manual logs with a game-theoretic handoff protocol. If a driver delivers spoiled goods, the receiver's node automatically rejects the handoff, instantly pinpointing liability.
             </p>
-            <div className="space-y-6 text-slate-300 text-lg leading-relaxed">
-              <p>
-                If the system that captures cold chain data is different from the system that audits it, records will always be editable, audits will always be manual, and disputes will always be subjective.
-              </p>
-              <p>
-                For audits to be reliable, the same platform must own the data, the record history, and the audit process. This is why generic tools like spreadsheets or ERPs are insufficient for highly regulated cold chain compliance.
-              </p>
+
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div key={index} className="flex gap-6 items-start">
+                  <div className="mt-1 p-3 bg-white/[0.03] border border-white/5">
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-white uppercase tracking-wider mb-2">{step.title}</h3>
+                    <p className="text-[#6a8fa3] font-light text-sm leading-relaxed">{step.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="mt-12 flex items-center gap-4 border-t border-slate-800 pt-8">
-              <div className="w-12 h-12 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622l-.382-3.016z" />
-                </svg>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="aspect-square bg-white/[0.02] border border-white/5 p-8 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,229,255,0.05)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_8s_infinite_linear]"></div>
+              
+              <div className="relative h-full flex flex-col justify-center items-center">
+                <div className="w-full max-w-md space-y-6">
+                  <div className="p-6 bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[0.6rem] text-[#00e5ff] uppercase tracking-widest">Node: Warehouse_A</span>
+                      <span className="text-[0.6rem] text-[#6a8fa3]">Status: Syncing...</span>
+                    </div>
+                    <div className="h-2 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "100%" }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="h-full bg-[#00e5ff]"
+                      ></motion.div>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-center">
+                    <div className="w-px h-12 bg-gradient-to-b from-[#00e5ff] to-transparent"></div>
+                  </div>
+
+                  <div className="p-6 bg-[#00e5ff]/5 border border-[#00e5ff]/20 backdrop-blur-sm">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[0.6rem] text-[#00e5ff] uppercase tracking-widest">Smart Contract Execution</span>
+                      <span className="text-[0.6rem] text-[#00e5ff]">Verified</span>
+                    </div>
+                    <div className="text-xs text-[#d6edf5] font-mono opacity-60">
+                      {`{ "action": "HANDOFF", "from": "TRUCK_42", "to": "WH_A", "temp_avg": 4.2, "integrity": 1.0 }`}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="text-slate-100 font-medium">Compliance-first by architecture, not by add-on.</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

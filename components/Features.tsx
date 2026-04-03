@@ -1,70 +1,70 @@
 
 import React from 'react';
+import { motion } from 'motion/react';
+import { Cpu, Share2, FileCheck, Zap } from 'lucide-react';
 
 const featureList = [
   {
-    title: 'Unified Data Capture',
-    description: 'Integrate directly with existing sensors and loggers. No hardware replacement needed. Centralize all operational data instantly.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-      </svg>
-    ),
+    title: 'Edge AI Verification',
+    description: 'Our proprietary ML models detect anomalous cooling patterns before they lead to spoilage, triggering smart-contract alerts.',
+    icon: <Cpu className="w-8 h-8 text-[#00e5ff]" />,
   },
   {
-    title: 'Tamper-Proof Storage',
-    description: 'Data is locked upon entry. Records cannot be edited or deleted, creating a verifiable and defensible history for inspections.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
+    title: 'Permissioned Ledger',
+    description: 'Built on a high-throughput blockchain, ensuring every handoff is cryptographically signed and immutable.',
+    icon: <Share2 className="w-8 h-8 text-[#00e5ff]" />,
   },
   {
     title: 'Automated Audit Logic',
     description: 'Real-time organization of data into audit-ready formats. Track deviations and exceptions automatically, reducing manual prep work.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01m-.01 4h.01" />
-      </svg>
-    ),
+    icon: <FileCheck className="w-8 h-8 text-[#00e5ff]" />,
   },
   {
-    title: 'Direct Auditor Access',
-    description: 'Enable inspectors to verify data directly within the platform. Eliminate repeated exports and manual document sharing.',
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    ),
+    title: 'Zero-Hardware Integration',
+    description: 'Integrate directly with existing IoT sensors and loggers via our universal API. No expensive hardware replacement needed.',
+    icon: <Zap className="w-8 h-8 text-[#00e5ff]" />,
   },
 ];
 
 const Features: React.FC = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="lg:text-center mb-16">
-          <h2 className="text-base font-semibold leading-7 text-blue-600 uppercase tracking-wide">The Solution</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            A Single System for Cold Chain Integrity
+    <section id="features" className="py-24 px-6 lg:px-12 bg-[#05090f] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <div className="text-[#00e5ff] font-display text-[0.7rem] tracking-[0.2em] uppercase mb-4">The Solution</div>
+          <h2 className="font-display font-extrabold text-[2.5rem] lg:text-[3.5rem] text-white leading-tight">
+            Deep Tech for <span className="text-[#00e5ff]">Real-World</span> Logistics
+          </h2>
+          <p className="max-w-2xl mx-auto mt-6 text-[#6a8fa3] font-light text-[1.1rem]">
+            A single, unified protocol for cold chain integrity, designed for the unique challenges of the Indian logistics landscape.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featureList.map((feature, index) => (
-            <div key={index} className="flex gap-6">
-              <div className="flex-shrink-0">
-                <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-blue-600 text-white shadow-blue-200 shadow-lg">
-                  {feature.icon}
-                </div>
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-10 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300 group flex flex-col md:flex-row gap-8 items-start"
+            >
+              <div className="p-4 bg-white/[0.03] group-hover:bg-[#00e5ff]/10 transition-colors duration-300">
+                {feature.icon}
               </div>
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                <h3 className="font-display font-bold text-xl text-white mb-4 uppercase tracking-wider">{feature.title}</h3>
+                <p className="text-[#6a8fa3] font-light leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

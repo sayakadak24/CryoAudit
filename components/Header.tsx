@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 interface HeaderProps {
   onCtaClick: () => void;
@@ -14,9 +15,10 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
 
   const navItems = [
     { name: 'The Problem', path: '/problem' },
-    { name: 'Our Approach', path: '/approach' },
-    { name: 'Brochure', path: '/brochure' },
-    { name: 'Overview', path: '/' },
+    { name: 'The Protocol', path: '/approach' },
+    { name: 'Technology', path: '/technology' },
+    { name: 'Impact', path: '/case-studies' },
+    { name: 'Technical Spec', path: '/brochure' },
   ];
 
   return (
@@ -25,12 +27,9 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
         <div className="flex justify-between items-center h-16">
           <Link 
             to="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
           >
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <div className="w-4 h-4 border-2 border-white rotate-45" />
-            </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">CryoTrack</span>
+            <Logo className="text-slate-900" />
           </Link>
           
           {/* Desktop Navigation */}
