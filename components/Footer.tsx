@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
@@ -15,33 +15,6 @@ const Footer: React.FC = () => {
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Compliance + Intelligence + Revenue Signaling Infrastructure for Global Cold Chains. Eliminating GIGO vulnerabilities through protocol-level game theory.
             </p>
-            <div className="flex gap-4">
-              <a 
-                href="https://www.linkedin.com/company/cryotrack-in/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
-                title="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://x.com/CryoTrack" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
-                title="Twitter (X)"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a 
-                href="contact@cryotrack.in" 
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
-                title="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           <div>
@@ -66,7 +39,7 @@ const Footer: React.FC = () => {
 
           <div>
             <h4 className="text-lg font-bold mb-6">Contact</h4>
-            <ul className="space-y-4 text-slate-400 text-sm">
+            <ul className="space-y-4 text-slate-400 text-sm mb-8">
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-blue-500" />
                 <span>contact@cryotrack.in</span>
@@ -76,11 +49,33 @@ const Footer: React.FC = () => {
                 <span>New Delhi, India</span>
               </li>
             </ul>
+            <div className="flex gap-4">
+              <a 
+                href="https://www.linkedin.com/company/cryotrack-in/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://x.com/CryoTrack" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 transition-colors"
+                title="X (formerly Twitter)"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-medium uppercase tracking-widest">
-          <p>© 2024 CryoTrack Infrastructure. All rights reserved.</p>
+          <p>© 2026 CryoTrack Infrastructure. All rights reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
