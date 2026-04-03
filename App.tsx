@@ -8,6 +8,7 @@ import ApproachView from './views/ApproachView';
 import BrochureView from './views/BrochureView';
 import CaseStudiesView from './views/CaseStudiesView';
 import TechnologyView from './views/TechnologyView';
+import BusinessModelView from './views/BusinessModelView';
 import PilotForm from './components/PilotForm';
 import Footer from './components/Footer';
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
           <Route path="/brochure" element={<BrochureView onCtaClick={toggleForm} />} />
           <Route path="/case-studies" element={<CaseStudiesView />} />
           <Route path="/technology" element={<TechnologyView onCtaClick={toggleForm} />} />
+          <Route path="/business-model" element={<BusinessModelView onCtaClick={toggleForm} />} />
         </Routes>
         
         <div id="pilot">

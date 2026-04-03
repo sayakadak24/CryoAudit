@@ -13,27 +13,27 @@ const Footer: React.FC = () => {
               <Logo className="text-white" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Compliance + Intelligence + Revenue Signaling Infrastructure for Global Cold Chains. Eliminating GIGO vulnerabilities through protocol-level game theory.
+              Compliance + Intelligence + Revenue Signaling Infrastructure for Global Supply Chains. Eliminating data vulnerabilities through protocol-level incentives.
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-6">The Protocol</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link to="/approach" className="hover:text-blue-400 transition-colors">Checkpoint Mechanism</Link></li>
-              <li><Link to="/technology" className="hover:text-blue-400 transition-colors">Hyperledger Fabric</Link></li>
-              <li><Link to="/technology" className="hover:text-blue-400 transition-colors">Two-Tier AI Architecture</Link></li>
-              <li><Link to="/brochure" className="hover:text-blue-400 transition-colors">Technical Spec</Link></li>
+              <li><Link to="/approach" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Checkpoint Mechanism</Link></li>
+              <li><Link to="/technology" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Hyperledger Fabric</Link></li>
+              <li><Link to="/technology" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Two-Tier AI Architecture</Link></li>
+              <li><Link to="/brochure" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Technical Spec</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-bold mb-6">Impact</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><Link to="/case-studies" className="hover:text-blue-400 transition-colors">Case Studies</Link></li>
-              <li><Link to="/problem" className="hover:text-blue-400 transition-colors">The GIGO Problem</Link></li>
-              <li><Link to="/case-studies" className="hover:text-blue-400 transition-colors">Global Safety Standards</Link></li>
-              <li><Link to="/brochure" className="hover:text-blue-400 transition-colors">Revenue Signaling</Link></li>
+              <li><Link to="/case-studies" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Case Studies</Link></li>
+              <li><Link to="/problem" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">The GIGO Problem</Link></li>
+              <li><Link to="/case-studies" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Global Safety Standards</Link></li>
+              <li><Link to="/business-model" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Business Model</Link></li>
             </ul>
           </div>
 
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-blue-500" />
-                <span>New Delhi, India</span>
+                <span>Gurugram, India</span>
               </li>
             </ul>
             <div className="flex gap-4">
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-10 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-medium uppercase tracking-widest">
-          <p>© 2026 CryoTrack Infrastructure. All rights reserved.</p>
+          <p>© 2026 CryoTrack Solutions. All rights reserved.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

@@ -21,7 +21,7 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
               Technical Architecture & <span className="text-blue-500">Security Spec</span>
             </h1>
             <p className="text-xl text-slate-400 leading-relaxed">
-              A deep dive into the CryoTrack protocol: Hyperledger Fabric, RAFT Consensus, and Two-Tier AI Architecture.
+              A deep dive into the CryoTrack protocol: Secure Ledger Technology, Optimized Consensus, and Two-Tier AI Architecture.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button 
@@ -42,21 +42,21 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6">The Trust Layer</h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                CryoTrack is built on Hyperledger Fabric, an enterprise-grade permissioned blockchain that eliminates gas fees and tokenomics while providing deterministic finality.
+                CryoTrack Solutions is built on a secure, enterprise-grade permissioned ledger that ensures data integrity and deterministic finality for all transactions.
               </p>
               <div className="space-y-6">
                 <div className="flex gap-4 p-6 bg-slate-50 rounded-2xl border border-slate-100">
                   <Database className="w-6 h-6 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-slate-900">RAFT Consensus</h4>
-                    <p className="text-sm text-slate-600">Crash Fault Tolerant (CFT) ordering service deployed across NIC-hosted enterprise environments for state-backed neutrality.</p>
+                    <h4 className="font-bold text-slate-900">Secure Consensus</h4>
+                    <p className="text-sm text-slate-600">Fault-tolerant ordering service deployed across secure enterprise environments for state-backed neutrality.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-6 bg-slate-50 rounded-2xl border border-slate-100">
                   <Zap className="w-6 h-6 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold text-slate-900">Deferred Endorsement</h4>
-                    <p className="text-sm text-slate-600">Optimizes endorsement from O(N) to O(1) at handoff, enabling high-throughput logistics without compromising security.</p>
+                    <h4 className="font-bold text-slate-900">Optimized Verification</h4>
+                    <p className="text-sm text-slate-600">Provides instant verification at handoff, enabling high-throughput logistics without compromising security.</p>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
               <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">Network Topology</div>
               <div className="space-y-6">
                 <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl">
-                  <span className="text-sm">Ordering Service (MeitY NBF)</span>
+                  <span className="text-sm">Ordering Service</span>
                   <div className="flex gap-1">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                     <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
@@ -73,16 +73,16 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
                   </div>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl">
-                  <span className="text-sm">Enterprise Peer Nodes</span>
+                  <span className="text-sm">Enterprise Nodes</span>
                   <span className="text-xs text-slate-500">Anchor Peers</span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl">
-                  <span className="text-sm">Auditor Nodes (FSSAI/CDSCO)</span>
+                  <span className="text-sm">Auditor Nodes</span>
                   <span className="text-xs text-blue-400">Read-Only</span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl">
-                  <span className="text-sm">MSME Edge Clients</span>
-                  <span className="text-xs text-slate-500">O(1) Signing</span>
+                  <span className="text-sm">Edge Clients</span>
+                  <span className="text-xs text-slate-500">Instant Signing</span>
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
                 Runs locally on MSME-tier smartphones. Digitizes paper logs via OCR and captures GPS-tagged photos.
               </p>
               <ul className="space-y-3">
-                {["On-device OCR (Tesseract/BHASHINI)", "WORM-enforced local caching", "Anti-spoofing GPS bounding", "Offline cryptographic signatures"].map((item, idx) => (
+                {["On-device data capture", "Secure local caching", "GPS-tagged verification", "Offline cryptographic signatures"].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-blue-600" />
                     {item}
@@ -121,10 +121,10 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Tier 2: Central Intelligence</h3>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                Real-time oracle correlation and network-wide causal analytics using the DoWhy framework.
+                Real-time data correlation and network-wide risk analytics.
               </p>
               <ul className="space-y-3">
-                {["ULIP/VAHAN API cross-referencing", "Weather & traffic signal correlation", "Explainable AI (XAI) plain-language alerts", "Causal risk modeling"].map((item, idx) => (
+                {["Global logistics data cross-referencing", "Environmental signal correlation", "Plain-language alerts", "Predictive risk modeling"].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
                     <CheckCircle2 className="w-4 h-4 text-blue-600" />
                     {item}
@@ -205,12 +205,12 @@ const BrochureView: React.FC<BrochureViewProps> = ({ onCtaClick }) => {
                 {[
                   { area: "Data Integrity", trad: "Editable files, internal databases", cryo: "Tamper-evident, cryptographically secured records" },
                   { area: "Audit Readiness", trad: "Manual preparation before inspections", cryo: "Always audit-ready, instantly verifiable" },
-                  { area: "Data Entry", trad: "Manual free-text entry", cryo: "OCR digitisation & guided structured input" },
-                  { area: "Verification", trad: "Assumes honest input", cryo: "Game-theoretic liability transfer at handoff" },
+                  { area: "Data Entry", trad: "Manual free-text entry", cryo: "Digital capture & guided structured input" },
+                  { area: "Verification", trad: "Assumes honest input", cryo: "Incentive-based liability transfer at handoff" },
                   { area: "Fraud Prevention", trad: "Edits often untraceable", cryo: "Full timestamp & modification tracking" },
-                  { area: "Connectivity", trad: "Requires constant network", cryo: "Offline caching with auto-ledger anchoring" },
-                  { area: "Intelligence", trad: "Raw data only", cryo: "Two-tier AI with causal risk analysis" },
-                  { area: "Regulatory", trad: "Fragmented paper logs", cryo: "Verified Compliance Records for FSSAI/CDSCO" }
+                  { area: "Connectivity", trad: "Requires constant network", cryo: "Offline support with automatic syncing" },
+                  { area: "Intelligence", trad: "Raw data only", cryo: "Two-tier AI with predictive risk analysis" },
+                  { area: "Regulatory", trad: "Fragmented paper logs", cryo: "Verified Compliance Records for global standards" }
                 ].map((row, idx) => (
                   <tr key={idx} className="hover:bg-slate-50 transition-colors">
                     <td className="p-6 font-bold text-slate-900 border-b border-slate-100">{row.area}</td>

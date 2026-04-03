@@ -11,30 +11,30 @@ const TechnologyView: React.FC<TechnologyViewProps> = ({ onCtaClick }) => {
     {
       id: "hyperledger",
       icon: <Database className="w-8 h-8" />,
-      title: "Hyperledger Fabric",
-      description: "The immutable core. A permissioned distributed ledger designed for enterprise B2B networks, eliminating gas fees and tokenomics.",
-      features: ["RAFT Consensus", "Deferred Endorsement Policy", "Private Data Collections", "CouchDB World State"]
+      title: "Immutable Core",
+      description: "A secure, permissioned distributed ledger designed for enterprise networks, ensuring data integrity without unnecessary complexity.",
+      features: ["Secure Consensus", "Private Data Access", "Immutable Audit Trails", "Enterprise Scalability"]
     },
     {
       id: "ai-tier-1",
       icon: <Smartphone className="w-8 h-8" />,
-      title: "Tier 1: Edge Intelligence",
-      description: "On-device OCR and verification running on MSME-tier smartphones. Works in zero-connectivity environments with WORM caching.",
-      features: ["On-device OCR", "GPS-Tagged Photos", "Offline Caching", "Anti-Spoofing Protocols"]
+      title: "Tier 1: Edge Verification",
+      description: "On-device verification running on standard smartphones. Works seamlessly even in areas with limited connectivity.",
+      features: ["On-device Data Capture", "GPS-Tagged Evidence", "Offline Support", "Anti-Spoofing Measures"]
     },
     {
       id: "ai-tier-2",
       icon: <Cpu className="w-8 h-8" />,
-      title: "Tier 2: Centralized Engine",
-      description: "Real-time oracle correlation and causal analytics. Cross-references telemetry against weather, route, and traffic data.",
-      features: ["ULIP Interoperability", "Causal ML (DoWhy)", "Explainable AI (XAI)", "Anomaly Detection"]
+      title: "Tier 2: Central Intelligence",
+      description: "Real-time data correlation and risk analytics. Cross-references information against global logistics and environmental data.",
+      features: ["Interoperability", "Predictive Analytics", "Explainable Insights", "Anomaly Detection"]
     },
     {
       id: "api-gateway",
       icon: <Globe className="w-8 h-8" />,
-      title: "API & Integration Gateway",
-      description: "The architectural middleware. Bridges legacy ERPs (SAP, Oracle) with the decentralized network using gRPC and GraphQL.",
-      features: ["JWT/OAuth 2.0", "HSM Key Management", "Event-Driven Architecture", "Asynchronous Processing"]
+      title: "Integration Gateway",
+      description: "The bridge to your existing systems. Connects legacy software with our secure network for a unified view of your supply chain.",
+      features: ["Secure Authentication", "Key Management", "Event-Driven Logic", "Seamless Connectivity"]
     }
   ];
 
@@ -53,7 +53,7 @@ const TechnologyView: React.FC<TechnologyViewProps> = ({ onCtaClick }) => {
               The Infrastructure of <span className="text-blue-600">Trust</span>
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              CryoTrack is a decoupled, microservices-based framework designed to be lightweight at the edge but enterprise-grade at the core.
+              CryoTrack Solutions is a modern, scalable infrastructure designed to be lightweight at the edge but enterprise-grade at the core.
             </p>
           </div>
         </div>
@@ -96,35 +96,35 @@ const TechnologyView: React.FC<TechnologyViewProps> = ({ onCtaClick }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-8">Deferred Endorsement Policy</h2>
+              <h2 className="text-3xl font-bold mb-8">Optimized Verification Protocol</h2>
               <p className="text-slate-400 mb-8 leading-relaxed">
-                Standard blockchain networks use O(N) endorsement, which is too slow for high-velocity logistics. CryoTrack optimizes this to O(1) at the moment of handoff.
+                Traditional networks require complex, multi-step verification that can slow down high-velocity logistics. CryoTrack optimizes this to provide instant verification at the moment of handoff.
               </p>
               <div className="space-y-6">
                 <div className="flex gap-4 p-6 bg-white/5 border border-white/10 rounded-2xl">
                   <Shield className="w-6 h-6 text-blue-400 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold mb-1">Single-Signature Ingestion</h4>
-                    <p className="text-sm text-slate-400">The receiving actor's signature is sufficient for initial ledger entry, ensuring zero-latency operations.</p>
+                    <h4 className="font-bold mb-1">Instant Verification</h4>
+                    <p className="text-sm text-slate-400">The receiver's verification is sufficient for initial ledger entry, ensuring zero-latency operations during handoffs.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 p-6 bg-white/5 border border-white/10 rounded-2xl">
                   <Network className="w-6 h-6 text-blue-400 flex-shrink-0" />
                   <div>
-                    <h4 className="font-bold mb-1">Multi-Signature Dispute</h4>
-                    <p className="text-sm text-slate-400">If an anomaly is detected, the protocol automatically defers to its highest security tier, requiring auditor consensus.</p>
+                    <h4 className="font-bold mb-1">Collaborative Consensus</h4>
+                    <p className="text-sm text-slate-400">If an anomaly is detected, the protocol automatically triggers a higher security tier, requiring multi-party consensus for resolution.</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl">
-              <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">Consensus Lifecycle</div>
+              <div className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-6">Verification Lifecycle</div>
               <div className="space-y-8">
                 {[
-                  { step: "Genesis", desc: "Asset twin minted with SLA parameters" },
-                  { step: "Handoff", desc: "O(1) signature + Edge AI verification" },
-                  { step: "Evaluation", desc: "Tier 2 Oracle correlation (ULIP/Weather)" },
-                  { step: "Commit", desc: "RAFT ordering sequences block to ledger" }
+                  { step: "Genesis", desc: "Asset digital twin created with compliance parameters" },
+                  { step: "Handoff", desc: "Instant verification + Edge AI evidence capture" },
+                  { step: "Evaluation", desc: "Central Intelligence data correlation" },
+                  { step: "Commit", desc: "Secure ordering sequences record to ledger" }
                 ].map((s, idx) => (
                   <div key={idx} className="flex gap-4 items-start">
                     <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center text-[10px] font-bold flex-shrink-0">

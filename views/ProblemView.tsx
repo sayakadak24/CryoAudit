@@ -26,11 +26,11 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
               The Infrastructure Gap
             </div>
             <h1 className="text-4xl font-extrabold text-slate-900 sm:text-6xl mb-6 leading-tight">
-              India's <span className="text-red-600">Fragile</span> Supply Chain.
+              The <span className="text-red-600">Integrity Gap</span> in Global Supply Chains.
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              From farmers to local Kiranas, 90% of India's logistics remain unorganized. 
-              This fragmentation creates a lethal vulnerability: **Garbage In, Garbage Out (GIGO).**
+              Modern logistics remain heavily reliant on manual processes and fragmented systems. 
+              This fragmentation creates a critical vulnerability: **The Data Integrity Gap.**
             </p>
           </div>
         </div>
@@ -57,23 +57,23 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-8 space-y-20">
               
-              {/* GIGO Section */}
+              {/* Data Integrity Section */}
               <div>
                 <h2 className="text-3xl font-bold text-slate-900 mb-8 flex items-center gap-3">
-                  The GIGO Vulnerability
+                  The Data Integrity Gap
                 </h2>
                 <div className="prose prose-slate prose-lg max-w-none text-slate-600">
                   <p className="mb-6">
-                    Even when data is digitized, it relies on manual entry by logistics personnel or IoT devices which can be compromised. 
-                    In Cold Storage logistics, <strong>70% still rely on manual logging</strong>.
+                    Even when data is digitized, it often relies on manual entry or unverified inputs. 
+                    In many logistics sectors, **over 70% of data points are still manually logged**, leading to significant risks.
                   </p>
                   <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-2xl">
                     <p className="text-red-900 font-medium italic">
-                      "To avoid penalties or losing their jobs, workers fake manual logs—writing down that the temperature was fine even if the power went out—feeding garbage into the system."
+                      "When data entry is manual and unverified, the system becomes vulnerable to errors and intentional falsification—creating a false sense of security."
                     </p>
                   </div>
                   <p>
-                    This leaves 88% to 90% of operational time without logging, creating a dangerous "false sense of security."
+                    This gap in verified data creates a blind spot that can lead to operational failures and safety risks across the entire chain.
                   </p>
                 </div>
               </div>

@@ -14,21 +14,21 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
       id: "compliance",
       icon: <ShieldCheck className="w-8 h-8" />,
       title: "Compliance Infrastructure",
-      description: "Eliminate GIGO vulnerabilities with protocol-enforced checkpoints and 100% liability transfer at every handoff.",
+      description: "Automated verification checkpoints and seamless liability transfer at every stage of the supply chain.",
       color: "blue"
     },
     {
       id: "intelligence",
       icon: <Brain className="w-8 h-8" />,
       title: "Intelligence Layer",
-      description: "Two-tier AI architecture for real-time anomaly detection, causal risk analysis, and predictive maintenance.",
+      description: "Advanced AI for real-time anomaly detection, predictive analytics, and operational optimization.",
       color: "indigo"
     },
     {
       id: "revenue",
       icon: <TrendingUp className="w-8 h-8" />,
-      title: "Revenue Signaling",
-      description: "Verified performance visibility for exporters, enabling premium pricing and faster payment cycles.",
+      title: "Business Value",
+      description: "Verified performance visibility for all stakeholders, enabling premium pricing and faster growth.",
       color: "emerald"
     }
   ];
@@ -48,7 +48,7 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-bold mb-8"
             >
               <Network className="w-4 h-4" />
-              The Trust Layer for Global Cold Chains
+              The Trust Layer for Global Supply Chains
             </motion.div>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -56,9 +56,9 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
               transition={{ delay: 0.1 }}
               className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]"
             >
-              Reduce Losses. <br/>
+              Scale with Confidence. <br/>
               <span className="text-blue-600">Increase Trust.</span> <br/>
-              Unlock Premium Revenue.
+              Unlock Global Markets.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -66,8 +66,8 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
               transition={{ delay: 0.2 }}
               className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed"
             >
-              CryoTrack is the first protocol-level compliance and intelligence infrastructure for fragmented logistics. 
-              We eliminate the "Garbage In, Garbage Out" vulnerability using Hyperledger Fabric and Game Theory.
+              CryoTrack Solutions provides the first protocol-level compliance and intelligence infrastructure for global supply chains. 
+              We ensure data integrity and operational excellence through automated verification and seamless user experiences.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -114,46 +114,46 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
         </div>
       </section>
 
-      {/* The GIGO Problem Summary */}
+      {/* The Data Integrity Gap Summary */}
       <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:40px_40px] opacity-5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-widest mb-6">
-                <AlertTriangle className="w-3 h-3" />
-                The GIGO Vulnerability
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+                <ShieldCheck className="w-3 h-3" />
+                Data Integrity Gap
               </div>
-              <h2 className="text-3xl font-bold mb-6">Why traditional tracking fails.</h2>
+              <h2 className="text-3xl font-bold mb-6">Bridging the trust gap in logistics.</h2>
               <p className="text-slate-400 mb-8 leading-relaxed">
-                India's logistics are 90% unorganized. Manual data entry carries a 1-5% error rate, but in cold storage, 70% of workers fake logs to avoid penalties. 
-                This "Garbage In, Garbage Out" vulnerability isn't just a financial risk—it's fatal.
+                Modern supply chains are only as strong as the data they generate. Manual processes and fragmented systems create vulnerabilities that compromise safety and efficiency. 
+                CryoTrack Solutions ensures that every data point is verified and every handoff is secure.
               </p>
               <div className="space-y-4">
                 {[
-                  "88-90% of operational time remains unlogged",
-                  "Manual logs are faked after power failures",
-                  "Unencrypted sensors provide a 'false sense of security'",
-                  "Fragmented data silos prevent instant traceability"
+                  "Automated verification at every checkpoint",
+                  "Seamless integration with existing workflows",
+                  "Real-time visibility for all stakeholders",
+                  "Verified audit trails for global compliance"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-slate-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
                     {item}
                   </div>
                 ))}
               </div>
               <Link to="/problem" className="inline-flex items-center gap-2 mt-10 text-blue-400 font-bold hover:text-blue-300 transition-colors">
-                Deep Dive into the Problem
+                Understand the Integrity Gap
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
             <div className="bg-white/5 border border-white/10 p-10 rounded-3xl backdrop-blur-sm">
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Case Study: Ramnagar (2019)</div>
+              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Industry Insight</div>
               <p className="text-slate-300 mb-6 italic">
-                "12 children died because industrial-grade DEG was substituted for pharma-grade PG. The paper trail was complete, but the data was garbage."
+                "By shifting the focus from manual oversight to automated verification, we empower businesses to scale with absolute confidence in their data."
               </p>
               <Link to="/case-studies" className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl text-sm font-bold transition-all inline-block">
-                See How CryoTrack Intervenes
+                View Impact Stories
               </Link>
             </div>
           </div>

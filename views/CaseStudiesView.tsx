@@ -6,61 +6,63 @@ const CaseStudiesView: React.FC = () => {
   const cases = [
     {
       id: "ramnagar",
-      title: "Ramnagar Poisoning (2019–2020)",
-      tragedy: "12 children died and 6 were permanently disabled due to DEG contamination in cough syrup.",
-      rootCause: "Industrial-grade DEG was substituted for pharma-grade propylene glycol. Invoices explicitly stated 'for industrial use only' but were ignored by manual intake.",
+      title: "Ramnagar Case (2019–2020)",
+      externalLink: "https://www.thehindu.com/news/national/other-states/12-children-die-in-jammu-after-consuming-adulterated-cough-syrup/article30847355.ece",
+      tragedy: "A tragic incident where contaminated products led to multiple fatalities and permanent disabilities.",
+      rootCause: "Industrial-grade materials were substituted for pharmaceutical-grade ingredients. Invoices explicitly stated the industrial nature but were ignored during manual intake.",
       intervention: [
         {
-          title: "Raw Material Intake",
-          description: "Tier 1 Edge AI uses on-device OCR to scan supplier invoices. The system flags 'industrial use only' against pharma parameters, blocking the action instantly."
+          title: "Intake Verification",
+          description: "Advanced Edge AI uses on-device OCR to scan supplier invoices. The system flags industrial-grade materials against safety parameters, blocking the action instantly."
         },
         {
-          title: "Batch Genesis",
-          description: "Hyperledger smart contracts enforce CDSCO compliance. Assets are only minted if NABL/CDSCO API validation is received, preventing unverified batches from entering the chain."
+          title: "Asset Genesis",
+          description: "Secure smart contracts enforce safety compliance. Assets are only created if verified safety parameters are met, preventing unverified batches from entering the chain."
         },
         {
-          title: "Instant Recall",
-          description: "Tier 2 Causal Analytics queries the ledger to isolate the origin lot and its digital twin bifurcations, compressing a 5-month trace into seconds."
+          title: "Instant Traceability",
+          description: "Centralized analytics query the ledger to isolate the origin lot and its distribution path, compressing a months-long trace into seconds."
         }
       ]
     },
     {
       id: "gambia",
-      title: "The Gambia Tragedy (2022)",
-      tragedy: "70+ children died from acute kidney injury linked to contaminated pediatric cough syrups.",
-      rootCause: "Regulatory blindspot: Export batches didn't require mandatory DEG testing. The supply chain was 'compliant on paper' but chemically lethal.",
+      title: "The Gambia Case (2022)",
+      externalLink: "https://www.reuters.com/business/healthcare-pharmaceuticals/gambia-cough-syrup-deaths-what-we-know-so-far-2022-10-14/",
+      tragedy: "Dozens of children died from acute kidney injury linked to contaminated pediatric products.",
+      rootCause: "Regulatory blindspot: Export batches didn't require mandatory testing. The supply chain was 'compliant on paper' but physically unsafe.",
       intervention: [
         {
-          title: "Flagged Asset Genesis",
-          description: "Without an authenticated API handshake from a testing oracle, the smart contract automatically mints the digital twin with a permanent STATUS: UNCERTIFIED_FLAG."
+          title: "Flagged Asset Creation",
+          description: "Without a verified testing record, the smart contract automatically marks the digital twin with a permanent 'UNCERTIFIED' flag."
         },
         {
           title: "Terminal Verification",
-          description: "Port authorities in Gambia scan the QR code. The Tier 1 app visualizes the uncertified flag instantly, regardless of physical paper documents."
+          description: "Authorities scan the verification code. The mobile app visualizes the uncertified flag instantly, regardless of physical paper documents."
         },
         {
           title: "Liability Transfer",
-          description: "Importers must use their self-custodial key to sign for a flagged batch, immutably absorbing 100% liability and self-incriminating if they proceed."
+          description: "Importers must use their secure key to sign for a flagged batch, immutably absorbing 100% liability if they choose to proceed."
         }
       ]
     },
     {
       id: "synthetic-milk",
-      title: "Synthetic Milk Syndicates (2019-2022)",
-      tragedy: "Toxic mixtures of refined oil, detergent, and paint were engineered to mimic FAT/SNF readings, poisoning millions of liters of dairy.",
-      rootCause: "Hardware isolation. Offline electronic milk testers were bypassed, and falsified data was manually logged into legacy ERPs.",
+      title: "Adulteration Syndicates",
+      tragedy: "Widespread contamination of essential goods through engineered mixtures that mimic quality metrics.",
+      rootCause: "Data isolation. Offline testing devices were bypassed, and falsified data was manually logged into legacy systems.",
       intervention: [
         {
-          title: "Edge OCR Bridging",
-          description: "Workers must take a photo of the legacy tester's digital readout. Tier 1 AI extracts metrics directly from the display, bypassing manual entry."
+          title: "Edge Data Capture",
+          description: "Workers capture digital evidence of quality readouts. Advanced AI extracts metrics directly, bypassing manual entry."
         },
         {
-          title: "SLA Enforcement",
-          description: "Smart contracts map extracted data against FSSAI/NDDB parameters. Anomalous SNF levels typical of urea dilution trigger an immediate block."
+          title: "Safety Enforcement",
+          description: "Smart contracts map extracted data against global safety parameters. Anomalous levels typical of dilution trigger an immediate block."
         },
         {
-          title: "Silo Protection",
-          description: "National brands' overarching smart contracts block the dumping of unverified local batches into main cooling silos, protecting the entire batch."
+          title: "Network Protection",
+          description: "Overarching smart contracts block the integration of unverified batches into the main supply, protecting the entire chain."
         }
       ]
     }
@@ -84,11 +86,11 @@ const CaseStudiesView: React.FC = () => {
               Root Cause Analysis
             </div>
             <h1 className="text-4xl font-extrabold sm:text-6xl mb-6 leading-tight">
-              Preventing the <span className="text-blue-500">Lethal GIGO</span> Breach
+              Preventing the <span className="text-blue-500">Integrity Breach</span>
             </h1>
             <p className="text-xl text-slate-400 leading-relaxed">
               Official records were signed. Documents were approved. The paper trail said nothing was wrong. 
-              See how CryoTrack's protocol would have intercepted India's deadliest supply chain failures.
+              See how CryoTrack's protocol would have intercepted some of the deadliest supply chain failures.
             </p>
           </motion.div>
         </div>
@@ -108,7 +110,17 @@ const CaseStudiesView: React.FC = () => {
                         <AlertTriangle className="w-4 h-4" />
                         The Tragedy
                       </h4>
-                      <p className="text-red-800 text-sm leading-relaxed">{c.tragedy}</p>
+                      <p className="text-red-800 text-sm leading-relaxed mb-4">{c.tragedy}</p>
+                      {c.externalLink && (
+                        <a 
+                          href={c.externalLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-xs font-bold text-red-600 hover:text-red-700 transition-colors"
+                        >
+                          Read External Article <ArrowRight className="w-3 h-3" />
+                        </a>
+                      )}
                     </div>
                     <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl">
                       <h4 className="text-slate-900 font-bold mb-2 flex items-center gap-2">

@@ -1,125 +1,71 @@
 
-import React, { useEffect, useState } from 'react';
-import { motion, useInView } from 'motion/react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   onCtaClick: () => void;
 }
 
-const StatItem = ({ num, label, suffix = '' }: { num: number, label: string, suffix?: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      let start = 0;
-      const end = num;
-      const duration = 1800;
-      const startTime = performance.now();
-
-      const animate = (currentTime: number) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.floor(ease * end));
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        }
-      };
-
-      requestAnimationFrame(animate);
-    }
-  }, [isInView, num]);
-
-  return (
-    <div ref={ref} className="text-center">
-      <div className="font-display font-extrabold text-4xl lg:text-5xl text-[#00e5ff] leading-none">
-        {count}{suffix}
-      </div>
-      <div className="text-[0.75rem] text-[#6a8fa3] tracking-widest uppercase mt-2">
-        {label}
-      </div>
-    </div>
-  );
-};
-
 const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 lg:px-12 py-32 overflow-hidden z-[1]">
-      <div className="absolute w-[700px] h-[700px] bg-[radial-gradient(ellipse,rgba(0,184,169,0.12)_0%,transparent_70%)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <section className="relative overflow-hidden bg-white pt-16 pb-20 lg:pt-28 lg:pb-32">
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
       
-      <motion.img 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQABAADASIAAhEBAxEB/8QAHQABAQABBQEBAAAAAAAAAAAAAAEHAgQFBggDCf/EAFQQAAEDAgMEBQYMAgcGBAcAAwABAgMEBQYRIQcxQWESE1FxgQgiMkJysRQjMzdSYnSRobLB0WOzFSQ0Q1NzkhcnRIKT4aLC0vEWNUVVZIPwJYSU/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAQFAQMGAgf/xAA0EQEAAgICAQQBAwIEBgMBAQAAAQIDBBEhMQUSM0EGEyIyUYEUYXGRFTRCQ1KhFiMkU7H/2gAMAwEAAhEDEQA/APZRQAAAAAACAoAEKAICgCFAAE1KAAAAE4lAAhQAAAAhQAAAAhQAIUAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACFAAAAAAAAAAAAAAAAAEGpQAAAAAACFADUAAAAAIUAQFAAAAAAAAAAAACZFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQpCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARFKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEHAIXwAAAAAAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAAAAAAAAAAAAAaDQAEAAAAAAAAGY0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAAAAAAAAAAAaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJoUAAAAAAAAABoAAAAAAAAAIm8pEKAAAAAAAA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AAAAA1GoAAAAAAAAAAmo4gCkKEAAAAAAAAAhdSAAUAAAAAAAE1KQC6jUAAAAAAAAEApAUCFAAIAAAAADUAAAAAAAAAAAAIhSFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAJ4FAAAAAAAAAAAAAAAAAAAAAAAIMygAAAAAAAAAAAJ4FAAIAAAAAAAAQoAAAAAAAAAAACDwKAAAAAAAAABCgCadhQAAAAAAAMwAJ4FAAAAAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAAAAAiFIUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiFJxKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOJSIUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIUhQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAZgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGgAAAAAAAAAAAAAAAGgAAAAAAAAABQRV4Af/Z" 
-        alt="CryoTrack" 
-        className="h-24 lg:h-32 object-contain mb-8 filter drop-shadow-[0_0_24px_rgba(0,229,255,0.5)]"
-      />
-
-      <motion.div 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1 }}
-        className="inline-block border border-[rgba(0,229,255,0.12)] text-[#00e5ff] font-display text-[0.7rem] tracking-[0.2em] uppercase px-[18px] py-[6px] mb-9"
-      >
-        Blockchain India Challenge · Supply Chain
-      </motion.div>
-
-      <motion.h1 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="font-display font-extrabold text-[clamp(3rem,7vw,6.5rem)] leading-none tracking-tight text-white"
-      >
-        <span className="text-[#00e5ff]">Trust</span> at Every Handoff.
-        <span className="block font-light text-[clamp(2rem,4.5vw,4.2rem)] text-[#c8f0ff] opacity-70 tracking-wide mt-2">
-          Zero Garbage. Total Traceability.
-        </span>
-      </motion.h1>
-
-      <motion.p 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="max-w-[640px] mx-auto mt-8 text-[1.1rem] text-[#6a8fa3] font-light leading-relaxed"
-      >
-        CryoTrack is India's first game-theoretic supply chain integrity protocol — combining permissioned blockchain, edge AI, and cryptographic liability transfer to eliminate data falsification across India's 6.3 crore MSME logistics sector.
-      </motion.p>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="flex flex-wrap gap-4 justify-center mt-12"
-      >
-        <button 
-          onClick={onCtaClick}
-          className="bg-[#00e5ff] text-[#05090f] font-display font-bold text-[0.85rem] tracking-widest uppercase px-9 py-4 hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,229,255,0.3)] transition-all duration-200"
-        >
-          Get Early Access
-        </button>
-        <a 
-          href="#how" 
-          className="bg-transparent text-[#d6edf5] font-display text-[0.85rem] tracking-widest uppercase px-9 py-4 border border-white/15 hover:border-[#00e5ff] hover:text-[#00e5ff] transition-all duration-200"
-        >
-          See How It Works
-        </a>
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16 mt-20 pt-12 border-t border-[rgba(0,229,255,0.12)] w-full max-w-4xl"
-      >
-        <StatItem num={40} label="Agri produce lost annually" suffix="%" />
-        <StatItem num={6} label="Logistics currently digitised" suffix="%" />
-        <StatItem num={6.3} label="MSMEs in Indian logistics" suffix="Cr" />
-        <StatItem num={90} label="Cold chain relies on manual logs" suffix="%" />
-      </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/20 bg-blue-50 mb-8">
+            Now accepting early pilot partners
+          </div>
+          <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]">
+            The trust layer for <br/>
+            <span className="text-blue-600">Global Supply Chains</span>
+          </h1>
+          <p className="text-xl leading-relaxed text-slate-600 mb-12 max-w-2xl mx-auto">
+            CryoTrack Solutions provides the infrastructure to eliminate data vulnerabilities across any supply chain. We move compliance from a manual task to an automated architectural layer.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <button
+              onClick={onCtaClick}
+              className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 hover:-translate-y-0.5 transition-all active:scale-95"
+            >
+              Apply for Pilot Access
+            </button>
+            <Link
+              to="/approach"
+              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
+            >
+              View Our Approach
+            </Link>
+          </div>
+          
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-blue-600">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622l-.382-3.016z" />
+                </svg>
+              </span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Audit-Ready Logic</span>
+            </div>
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-blue-600">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+              </span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Tamper-Proof Storage</span>
+            </div>
+            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
+              <span className="text-blue-600">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </span>
+              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Unified Data Capture</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

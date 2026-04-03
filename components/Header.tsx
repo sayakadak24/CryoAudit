@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
     { name: 'The Problem', path: '/problem' },
     { name: 'The Protocol', path: '/approach' },
     { name: 'Technology', path: '/technology' },
+    { name: 'Business Model', path: '/business-model' },
     { name: 'Impact', path: '/case-studies' },
     { name: 'Technical Spec', path: '/brochure' },
   ];
