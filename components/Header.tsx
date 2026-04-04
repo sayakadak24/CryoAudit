@@ -16,10 +16,9 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
   const navItems = [
     { name: 'The Problem', path: '/problem' },
     { name: 'The Protocol', path: '/approach' },
-    { name: 'Technology', path: '/technology' },
-    { name: 'Business Model', path: '/business-model' },
+    { name: 'Platform', path: '/platform' },
+    { name: 'Pricing', path: '/pricing' },
     { name: 'Impact', path: '/case-studies' },
-    { name: 'Technical Spec', path: '/brochure' },
   ];
 
   return (

@@ -15,25 +15,28 @@ const Footer: React.FC = () => {
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Compliance + Intelligence + Revenue Signaling Infrastructure for Global Supply Chains. Eliminating data vulnerabilities through protocol-level incentives.
             </p>
+            <div className="flex items-center gap-3 text-slate-400 text-xs uppercase tracking-wider font-semibold">
+              <MapPin className="w-4 h-4 text-blue-500" />
+              <span>Gurugram, India</span>
+            </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">The Protocol</h4>
+            <h4 className="text-lg font-bold mb-6">Platform</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
+              <li><Link to="/platform" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Architecture</Link></li>
               <li><Link to="/approach" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Checkpoint Mechanism</Link></li>
-              <li><Link to="/technology" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Hyperledger Fabric</Link></li>
-              <li><Link to="/technology" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Two-Tier AI Architecture</Link></li>
-              <li><Link to="/brochure" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Technical Spec</Link></li>
+              <li><Link to="/platform" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Security & Compliance</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-bold mb-6">Impact</h4>
+            <h4 className="text-lg font-bold mb-6">Business & Impact</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
+              <li><Link to="/pricing" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Pricing Plans</Link></li>
+              <li><Link to="/platform" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Global Standards</Link></li>
               <li><Link to="/case-studies" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Case Studies</Link></li>
               <li><Link to="/problem" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">The GIGO Problem</Link></li>
-              <li><Link to="/case-studies" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Global Safety Standards</Link></li>
-              <li><Link to="/business-model" onClick={() => window.scrollTo(0, 0)} className="hover:text-blue-400 transition-colors">Business Model</Link></li>
             </ul>
           </div>
 
@@ -42,11 +45,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-slate-400 text-sm mb-8">
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-blue-500" />
-                <span>contact@cryotrack.in</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-blue-500" />
-                <span>Gurugram, India</span>
+                <a href="mailto:contact@cryotrack.in" className="hover:text-blue-400 transition-colors">contact@cryotrack.in</a>
               </li>
             </ul>
             <div className="flex gap-4">

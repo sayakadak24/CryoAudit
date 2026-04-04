@@ -8,6 +8,8 @@ interface HomeViewProps {
   onCtaClick: () => void;
 }
 
+import DashboardMockup from '../components/DashboardMockup';
+
 const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
   const pillars = [
     {
@@ -33,62 +35,89 @@ const HomeView: React.FC<HomeViewProps> = ({ onCtaClick }) => {
     }
   ];
 
+  const trustBadges = [
+    { name: "GDP Compliant", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_the_European_Medicines_Agency.svg/1200px-Logo_of_the_European_Medicines_Agency.svg.png" },
+    { name: "FSSAI Verified", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Food_Safety_and_Standards_Authority_of_India_logo.svg/1200px-Food_Safety_and_Standards_Authority_of_India_logo.svg.png" },
+    { name: "FDA Standards", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/US_FDA_logo.svg/1200px-US_FDA_logo.svg.png" }
+  ];
+
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-slate-50 -z-10"></div>
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/5 blur-3xl rounded-full translate-x-1/3 -translate-y-1/4"></div>
+      <section className="relative pt-32 pb-40 overflow-hidden bg-slate-50">
+        <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-20"></div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-bold mb-8"
-            >
-              <Network className="w-4 h-4" />
-              The Trust Layer for Global Supply Chains
-            </motion.div>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]"
-            >
-              Scale with Confidence. <br/>
-              <span className="text-blue-600">Increase Trust.</span> <br/>
-              Unlock Global Markets.
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed"
-            >
-              CryoTrack Solutions provides the first protocol-level compliance and intelligence infrastructure for global supply chains. 
-              We ensure data integrity and operational excellence through automated verification and seamless user experiences.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
-            >
-              <button
-                onClick={onCtaClick}
-                className="px-10 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-xl hover:bg-blue-700 hover:-translate-y-0.5 transition-all active:scale-95 flex items-center justify-center gap-2"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="text-left max-w-2xl">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold mb-8 uppercase tracking-widest"
               >
-                Apply for Pilot Access
-                <ArrowRight className="w-5 h-5" />
-              </button>
-              <Link
-                to="/approach"
-                className="px-10 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
+                <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></div>
+                The Trust Layer for Global Supply Chains
+              </motion.div>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1] font-display"
               >
-                Explore the Protocol
-              </Link>
-            </motion.div>
+                Scale with <span className="text-brand-600">Confidence.</span> <br/>
+                Automate Trust.
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-slate-600 mb-12 leading-relaxed"
+              >
+                CryoTrack Solutions provides the first protocol-level compliance and intelligence infrastructure for global supply chains. 
+                Eliminate manual data entry, prevent compliance fines, and automate your audit reporting.
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 mb-16"
+              >
+                <button
+                  onClick={onCtaClick}
+                  className="px-10 py-4 bg-brand-600 text-white font-bold rounded-xl shadow-xl hover:bg-brand-700 hover:-translate-y-0.5 transition-all active:scale-95 flex items-center justify-center gap-2"
+                >
+                  Apply for Pilot Access
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+                <Link
+                  to="/approach"
+                  className="px-10 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
+                >
+                  Explore the Protocol
+                </Link>
+              </motion.div>
+
+              {/* Trust Badges */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="flex flex-wrap items-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 w-full mb-2">Compliant with Global Standards</p>
+                <div className="flex items-center gap-12">
+                  <span className="text-lg font-black text-slate-900">GDP</span>
+                  <span className="text-lg font-black text-slate-900">FSSAI</span>
+                  <span className="text-lg font-black text-slate-900">FDA</span>
+                  <span className="text-lg font-black text-slate-900">ISO 9001</span>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="relative">
+              <div className="absolute -inset-4 bg-brand-500/5 blur-3xl rounded-full"></div>
+              <DashboardMockup />
+            </div>
           </div>
         </div>
       </section>
