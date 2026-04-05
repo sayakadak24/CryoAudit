@@ -30,7 +30,7 @@ const App: React.FC = () => {
           <Route path="/" element={<HomeView onCtaClick={toggleForm} />} />
           <Route path="/problem" element={<ProblemView onCtaClick={toggleForm} />} />
           <Route path="/approach" element={<ApproachView onCtaClick={toggleForm} />} />
-          <Route path="/case-studies" element={<CaseStudiesView />} />
+          <Route path="/case-studies" element={<CaseStudiesView onCtaClick={toggleForm} />} />
           <Route path="/platform" element={<PlatformView onCtaClick={toggleForm} />} />
           <Route path="/pricing" element={<PricingView onCtaClick={toggleForm} />} />
         </Routes>

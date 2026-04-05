@@ -6,6 +6,19 @@ interface HeaderProps {
   onCtaClick: () => void;
 }
 
+const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  isActive
+    ? 'text-blue-700 font-semibold border-b-2 border-blue-600'
+    : 'text-slate-600 font-medium hover:text-blue-600 transition-colors';
+
+const NAV_LINKS = [
+  { to: '/problem', label: 'Problem' },
+  { to: '/approach', label: 'Approach' },
+  { to: '/platform', label: 'Platform' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/case-studies', label: 'Case Studies' },
+];
+
 const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -19,11 +32,9 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
             <span className="text-2xl font-bold tracking-tight text-blue-800">CryoTrack</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <NavLink to="/problem" className={({isActive}) => isActive ? "text-blue-700 font-semibold border-b-2 border-blue-600" : "text-slate-600 font-medium hover:text-blue-600 transition-colors"}>Problem</NavLink>
-            <NavLink to="/approach" className={({isActive}) => isActive ? "text-blue-700 font-semibold border-b-2 border-blue-600" : "text-slate-600 font-medium hover:text-blue-600 transition-colors"}>Approach</NavLink>
-            <NavLink to="/platform" className={({isActive}) => isActive ? "text-blue-700 font-semibold border-b-2 border-blue-600" : "text-slate-600 font-medium hover:text-blue-600 transition-colors"}>Platform</NavLink>
-            <NavLink to="/pricing" className={({isActive}) => isActive ? "text-blue-700 font-semibold border-b-2 border-blue-600" : "text-slate-600 font-medium hover:text-blue-600 transition-colors"}>Pricing</NavLink>
-            <NavLink to="/case-studies" className={({isActive}) => isActive ? "text-blue-700 font-semibold border-b-2 border-blue-600" : "text-slate-600 font-medium hover:text-blue-600 transition-colors"}>Case Studies</NavLink>
+            {NAV_LINKS.map(({ to, label }) => (
+              <NavLink key={to} to={to} className={navLinkClass}>{label}</NavLink>
+            ))}
           </div>
         </div>
         
@@ -53,15 +64,18 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-b border-slate-200 py-4 px-4 space-y-4 shadow-lg">
-          <NavLink to="/platform" onClick={() => setIsMenuOpen(false)} className="block text-base font-medium text-slate-600 hover:text-blue-600">Platform</NavLink>
-          <NavLink to="/approach" onClick={() => setIsMenuOpen(false)} className="block text-base font-medium text-slate-600 hover:text-blue-600">Security</NavLink>
-          <NavLink to="/problem" onClick={() => setIsMenuOpen(false)} className="block text-base font-medium text-slate-600 hover:text-blue-600">Compliance</NavLink>
-          <NavLink to="/pricing" onClick={() => setIsMenuOpen(false)} className="block text-base font-medium text-slate-600 hover:text-blue-600">Pricing</NavLink>
+          {NAV_LINKS.map(({ to, label }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-base font-medium text-slate-600 hover:text-blue-600"
+            >
+              {label}
+            </NavLink>
+          ))}
           <button
-            onClick={() => {
-              onCtaClick();
-              setIsMenuOpen(false);
-            }}
+            onClick={() => { onCtaClick(); setIsMenuOpen(false); }}
             className="w-full bg-gradient-to-br from-primary to-primary-container text-white px-5 py-3 rounded-xl font-semibold transition-all shadow-sm"
           >
             Get Started

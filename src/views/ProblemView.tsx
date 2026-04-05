@@ -1,10 +1,42 @@
 import React from 'react';
+import type { ViewProps } from '../types';
+import PillBadge from '../components/ui/PillBadge';
+import CtaBanner from '../components/ui/CtaBanner';
 
-interface ProblemViewProps {
-  onCtaClick?: () => void;
-}
+const STAT_MINI = [
+  { value: '40%', label: 'Food lost annually in India\'s cold chain.', color: 'text-error' },
+  { value: '70%', label: 'Cold storages still rely on manual temperature logs.', color: 'text-amber-600' },
+  { value: '<6%', label: "Of India's logistics market is currently digitised.", color: 'text-primary' },
+];
 
-const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
+const COST_ITEMS = [
+  {
+    icon: 'child_care',
+    iconColor: 'text-error',
+    title: 'Lives Lost to Contaminated Drugs',
+    desc: 'The 2022 Gambia cough syrup tragedy. The Ramnagar poisoning. In every case, the paperwork was clean.',
+  },
+  {
+    icon: 'gavel',
+    iconColor: 'text-primary',
+    title: 'Regulatory Fines & Recalls',
+    desc: 'Incomplete audit trails lead to massive penalties during FSSAI, CDSCO, or FDA inspections — even when the failure wasn\'t yours.',
+  },
+  {
+    icon: 'trending_down',
+    iconColor: 'text-amber-600',
+    title: 'Margin Erosion for MSMEs',
+    desc: "Small distributors absorb losses they didn't cause, because they can't prove who was responsible at the time of failure.",
+  },
+];
+
+const CHART_ROWS = [
+  { label: 'REAL-TIME VISIBILITY', badge: 'CRITICAL GAP', badgeColor: 'text-error', barColor: 'bg-error', width: '6%' },
+  { label: 'AUDIT TRAIL INTEGRITY', badge: 'FAILING', badgeColor: 'text-error', barColor: 'bg-error', width: '30%' },
+  { label: 'DIGITAL ADOPTION', badge: 'ONLY 6%', badgeColor: 'text-slate-400', barColor: 'bg-slate-300', width: '6%' },
+];
+
+const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
   return (
     <main className="pt-20">
 
@@ -12,34 +44,31 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
       <section className="px-8 py-24 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center space-x-2 bg-error-container/30 px-3 py-1 rounded-full mb-6">
-              <span className="material-symbols-outlined text-error text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>warning</span>
-              <span className="text-error font-semibold text-[0.6875rem] tracking-wider uppercase">Systemic Vulnerability</span>
-            </div>
+            <PillBadge variant="error" icon="warning">Systemic Vulnerability</PillBadge>
             <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
-              ₹2.5 Lakh Crore Lost Every Year.<br /><span className="text-error">And Someone Is Always "Not Responsible."</span>
+              ₹2.5 Lakh Crore Lost Every Year.<br />
+              <span className="text-error">And Someone Is Always "Not Responsible."</span>
             </h1>
             <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10">
               India loses an estimated 40% of its food and agricultural produce before it reaches the shelf. In pharma, contaminated supply chains have cost children their lives — in India and abroad. And in every case, the paperwork looked fine.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex items-center p-4 bg-surface-container-low rounded-xl">
-                <span className="text-4xl font-bold text-error mr-3">40%</span>
-                <span className="text-xs text-secondary font-medium leading-tight">Food lost annually in India's cold chain.</span>
-              </div>
-              <div className="flex items-center p-4 bg-surface-container-low rounded-xl">
-                <span className="text-4xl font-bold text-amber-600 mr-3">70%</span>
-                <span className="text-xs text-secondary font-medium leading-tight">Cold storages still rely on manual temperature logs.</span>
-              </div>
-              <div className="flex items-center p-4 bg-surface-container-low rounded-xl">
-                <span className="text-4xl font-bold text-primary mr-3">&lt;6%</span>
-                <span className="text-xs text-secondary font-medium leading-tight">Of India's logistics market is currently digitised.</span>
-              </div>
+              {STAT_MINI.map(({ value, label, color }) => (
+                <div key={value} className="flex items-center p-4 bg-surface-container-low rounded-xl">
+                  <span className={`text-4xl font-bold ${color} mr-3`}>{value}</span>
+                  <span className="text-xs text-secondary font-medium leading-tight">{label}</span>
+                </div>
+              ))}
             </div>
           </div>
+
           <div className="lg:col-span-5 relative">
             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
-              <img className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close-up of a frosted warehouse storage unit with temperature readout flashing an error red light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm99nnfCItYvpwEiSEYtojY3VclMAyLuKP_KNlDp8rcSfolIpKHuv0zww6M1OfWMywYRBaAvX8LTd2kGfZohzKxC122A_33Qb7xXJt7MhOFH8251GE5PEz3zY4-CgEsy4BwlXf5PBgYAsp4df8XjAS8i3oMDzUy8WP23yeZD_a6PKC9NjE-grQJhqEogILLVmcm2I8baFI0ZDwgm6v-tgCXLgx5uQ0g8_83-j8HAlWAcKKvFvYLZy1TNr30NgSym-Ky--ZDHBD1nk" />
+              <img
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                data-alt="Close-up of a frosted warehouse storage unit with temperature readout flashing an error red light"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm99nnfCItYvpwEiSEYtojY3VclMAyLuKP_KNlDp8rcSfolIpKHuv0zww6M1OfWMywYRBaAvX8LTd2kGfZohzKxC122A_33Qb7xXJt7MhOFH8251GE5PEz3zY4-CgEsy4BwlXf5PBgYAsp4df8XjAS8i3oMDzUy8WP23yeZD_a6PKC9NjE-grQJhqEogILLVmcm2I8baFI0ZDwgm6v-tgCXLgx5uQ0g8_83-j8HAlWAcKKvFvYLZy1TNr30NgSym-Ky--ZDHBD1nk"
+              />
             </div>
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl max-w-[240px]">
               <span className="material-symbols-outlined text-error block mb-2" style={{ fontVariationSettings: "'FILL' 1" }}>thermostat</span>
@@ -55,7 +84,10 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">The GIGO Problem Is Everywhere</h2>
-            <p className="text-slate-400 text-lg leading-relaxed">Manual logs get faked. Cheap sensors get moved. Cold chain failures get hidden. And when something goes wrong, everyone points at someone else. This is <span className="text-white font-bold">Garbage In, Garbage Out</span> — and it silently runs through 94% of India's undigitised supply chain every single day.</p>
+            <p className="text-slate-400 text-lg leading-relaxed">
+              Manual logs get faked. Cheap sensors get moved. Cold chain failures get hidden. And when something goes wrong, everyone points at someone else. This is{' '}
+              <span className="text-white font-bold">Garbage In, Garbage Out</span> — and it silently runs through 94% of India's undigitised supply chain every single day.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -64,29 +96,30 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
                 <span className="material-symbols-outlined text-red-400 text-5xl mb-6">edit_note</span>
                 <h3 className="text-2xl font-bold mb-4">The GIGO Breach</h3>
                 <p className="text-slate-300 leading-relaxed max-w-md">
-                  "Garbage In, Garbage Out." Manual data entry allows for falsified logs. Historically, this has led to tragedies like <span className="text-white font-bold">The Gambia (2022)</span> and <span className="text-white font-bold">Ramnagar (2020)</span>, where batch integrity was compromised at the source — and the paperwork looked clean throughout.
+                  "Garbage In, Garbage Out." Manual data entry allows for falsified logs. Historically, this has led to tragedies like{' '}
+                  <span className="text-white font-bold">The Gambia (2022)</span> and{' '}
+                  <span className="text-white font-bold">Ramnagar (2020)</span>, where batch integrity was compromised at the source — and the paperwork looked clean throughout.
                 </p>
               </div>
               <div className="absolute top-0 right-0 w-1/2 h-full opacity-20">
-                <img className="w-full h-full object-cover" data-alt="Abstract heat map showing data manipulation risk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnwxyoDKPx0MPpY7NY8QAKSAZs2o4PKShXUE00qsS7NgoYsaXavCEBfy20-kzR2VADS-6CE7_GCUbaix4rsQ2FTX0uy_avHWpMqwUO2Sd9Sv9Vl20E2EXSo-jlijAAtnfaZDhHFpvJCcUJ4MdqmAcjvYjJ8g_7Be-eeNL0WmnVAQA7JG195zjYcKVB0cxv3C46L0SeHi-6t7c__EkoynWC5-ouZyUmpFaXlyrr705fA-l2k9mN5VjwNjWBVKCrW4HbI4F4d8UpjM" />
+                <img
+                  className="w-full h-full object-cover"
+                  data-alt="Abstract heat map showing data manipulation risk"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnwxyoDKPx0MPpY7NY8QAKSAZs2o4PKShXUE00qsS7NgoYsaXavCEBfy20-kzR2VADS-6CE7_GCUbaix4rsQ2FTX0uy_avHWpMqwUO2Sd9Sv9Vl20E2EXSo-jlijAAtnfaZDhHFpvJCcUJ4MdqmAcjvYjJ8g_7Be-eeNL0WmnVAQA7JG195zjYcKVB0cxv3C46L0SeHi-6t7c__EkoynWC5-ouZyUmpFaXlyrr705fA-l2k9mN5VjwNjWBVKCrW4HbI4F4d8UpjM"
+                />
               </div>
             </div>
 
-            <div className="bg-slate-800/40 backdrop-blur-md rounded-3xl p-10 border border-white/5">
-              <span className="material-symbols-outlined text-blue-400 text-5xl mb-6">visibility_off</span>
-              <h3 className="text-2xl font-bold mb-4">The Handoff Black Hole</h3>
-              <p className="text-slate-300 leading-relaxed text-sm">
-                Every transfer between a transporter, a warehouse, and a distributor is a blind spot. If no one is forced to verify the state of goods, no one is accountable for what happens in between.
-              </p>
-            </div>
-
-            <div className="bg-slate-800/40 backdrop-blur-md rounded-3xl p-10 border border-white/5">
-              <span className="material-symbols-outlined text-amber-400 text-5xl mb-6">assignment_late</span>
-              <h3 className="text-2xl font-bold mb-4">Zero Accountability</h3>
-              <p className="text-slate-300 leading-relaxed text-sm">
-                When assets fail, legacy systems make it impossible to pinpoint the exact moment or person responsible. Compliance becomes a blame game, not a fact-finding exercise.
-              </p>
-            </div>
+            {[
+              { icon: 'visibility_off', color: 'text-blue-400', title: 'The Handoff Black Hole', body: 'Every transfer between a transporter, a warehouse, and a distributor is a blind spot. If no one is forced to verify the state of goods, no one is accountable for what happens in between.' },
+              { icon: 'assignment_late', color: 'text-amber-400', title: 'Zero Accountability', body: "When assets fail, legacy systems make it impossible to pinpoint the exact moment or person responsible. Compliance becomes a blame game, not a fact-finding exercise." },
+            ].map(({ icon, color, title, body }) => (
+              <div key={title} className="bg-slate-800/40 backdrop-blur-md rounded-3xl p-10 border border-white/5">
+                <span className={`material-symbols-outlined ${color} text-5xl mb-6`}>{icon}</span>
+                <h3 className="text-2xl font-bold mb-4">{title}</h3>
+                <p className="text-slate-300 leading-relaxed text-sm">{body}</p>
+              </div>
+            ))}
 
             <div className="md:col-span-2 bg-slate-900/60 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border border-white/5">
               <div className="flex-1">
@@ -96,7 +129,11 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
                 </p>
               </div>
               <div className="w-full md:w-64 h-40 bg-slate-800 rounded-2xl flex items-center justify-center p-4 overflow-hidden relative">
-                <img className="absolute inset-0 w-full h-full object-cover opacity-40" data-alt="Complex fragmented supply chain warehouse" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ34YGyk0zTW57Z0lMZrzohqhTkXhK5O3raAXzxszeQ0T61INOY6TEW31N3V3q6TcXqR74xoF80LMA5AtXzgjxyzPKDoNxvXttuCbjSX8c8XK0h9M9joGIftJf-dfuWy8Ma3abqsPwOCnriK5Uuof5CwNc9e5rM8ZtWJ-mVEOwuc5a5_kLTfzMgxneCtoQfeW-rnKrOIsqpoL_Ezxssu1DLzImCMap2OQzD6z_PiHyByfNxT59iKU_bMZigAEWpAxfLEPe77GqP74" />
+                <img
+                  className="absolute inset-0 w-full h-full object-cover opacity-40"
+                  data-alt="Complex fragmented supply chain warehouse"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ34YGyk0zTW57Z0lMZrzohqhTkXhK5O3raAXzxszeQ0T61INOY6TEW31N3V3q6TcXqR74xoF80LMA5AtXzgjxyzPKDoNxvXttuCbjSX8c8XK0h9M9joGIftJf-dfuWy8Ma3abqsPwOCnriK5Uuof5CwNc9e5rM8ZtWJ-mVEOwuc5a5_kLTfzMgxneCtoQfeW-rnKrOIsqpoL_Ezxssu1DLzImCMap2OQzD6z_PiHyByfNxT59iKU_bMZigAEWpAxfLEPe77GqP74"
+                />
                 <span className="material-symbols-outlined text-6xl text-slate-500 relative z-10">hub</span>
               </div>
             </div>
@@ -112,68 +149,37 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
             <div className="flex-1">
               <h2 className="text-3xl font-bold mb-8">The Cost Is Never Just Financial</h2>
               <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 shrink-0 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                    <span className="material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>child_care</span>
+                {COST_ITEMS.map(({ icon, iconColor, title, desc }) => (
+                  <div key={title} className="flex gap-4">
+                    <div className="w-10 h-10 shrink-0 bg-white rounded-lg flex items-center justify-center shadow-sm">
+                      <span className={`material-symbols-outlined ${iconColor}`} style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-on-surface">{title}</h4>
+                      <p className="text-sm text-secondary">{desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-on-surface">Lives Lost to Contaminated Drugs</h4>
-                    <p className="text-sm text-secondary">The 2022 Gambia cough syrup tragedy. The Ramnagar poisoning. In every case, the paperwork was clean.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 shrink-0 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                    <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>gavel</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-on-surface">Regulatory Fines & Recalls</h4>
-                    <p className="text-sm text-secondary">Incomplete audit trails lead to massive penalties during FSSAI, CDSCO, or FDA inspections — even when the failure wasn't yours.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-10 h-10 shrink-0 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                    <span className="material-symbols-outlined text-amber-600" style={{ fontVariationSettings: "'FILL' 1" }}>trending_down</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-on-surface">Margin Erosion for MSMEs</h4>
-                    <p className="text-sm text-secondary">Small distributors absorb losses they didn't cause, because they can't prove who was responsible at the time of failure.</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
+
             <div className="flex-1 bg-white p-8 rounded-[2rem] shadow-[0px_24px_48px_rgba(11,28,48,0.06)]">
               <div className="flex justify-between items-center mb-8">
                 <span className="text-sm font-bold tracking-widest uppercase text-slate-400">India Supply Chain Audit</span>
                 <span className="material-symbols-outlined text-error">analytics</span>
               </div>
               <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between text-xs font-bold mb-2">
-                    <span>REAL-TIME VISIBILITY</span>
-                    <span className="text-error">CRITICAL GAP</span>
+                {CHART_ROWS.map(({ label, badge, badgeColor, barColor, width }) => (
+                  <div key={label}>
+                    <div className="flex justify-between text-xs font-bold mb-2">
+                      <span>{label}</span>
+                      <span className={badgeColor}>{badge}</span>
+                    </div>
+                    <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div className={`h-full ${barColor}`} style={{ width }} />
+                    </div>
                   </div>
-                  <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-error w-[6%]"></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-xs font-bold mb-2">
-                    <span>AUDIT TRAIL INTEGRITY</span>
-                    <span className="text-error">FAILING</span>
-                  </div>
-                  <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-error w-[30%]"></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-xs font-bold mb-2">
-                    <span>DIGITAL ADOPTION</span>
-                    <span className="text-slate-400">ONLY 6%</span>
-                  </div>
-                  <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-slate-300 w-[6%]"></div>
-                  </div>
-                </div>
+                ))}
               </div>
               <div className="mt-10 p-4 bg-primary/5 rounded-xl border border-primary/10">
                 <p className="text-xs font-medium text-primary">India's supply chain is not underfunded — it's unaccountable. CryoTrack changes that.</p>
@@ -187,7 +193,10 @@ const ProblemView: React.FC<ProblemViewProps> = ({ onCtaClick }) => {
       <section className="py-24 px-8 text-center max-w-4xl mx-auto">
         <h2 className="text-4xl font-extrabold mb-6">Stop Guessing. Start Knowing.</h2>
         <p className="text-lg text-secondary mb-10">The era of passive logging is over. It's time to secure your supply chain with active, verifiable intelligence.</p>
-        <button onClick={onCtaClick} className="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 transition-transform">
+        <button
+          onClick={onCtaClick}
+          className="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 transition-transform"
+        >
           See Our Solution
         </button>
       </section>
