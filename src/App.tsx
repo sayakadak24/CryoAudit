@@ -5,7 +5,6 @@ import Header from './components/Header';
 import HomeView from './views/HomeView';
 import ProblemView from './views/ProblemView';
 import ApproachView from './views/ApproachView';
-import CaseStudiesView from './views/CaseStudiesView';
 import PlatformView from './views/PlatformView';
 import PricingView from './views/PricingView';
 import PilotForm from './components/PilotForm';
@@ -30,7 +29,6 @@ const App: React.FC = () => {
           <Route path="/" element={<HomeView onCtaClick={toggleForm} />} />
           <Route path="/problem" element={<ProblemView onCtaClick={toggleForm} />} />
           <Route path="/approach" element={<ApproachView onCtaClick={toggleForm} />} />
-          <Route path="/case-studies" element={<CaseStudiesView onCtaClick={toggleForm} />} />
           <Route path="/platform" element={<PlatformView onCtaClick={toggleForm} />} />
           <Route path="/pricing" element={<PricingView onCtaClick={toggleForm} />} />
         </Routes>

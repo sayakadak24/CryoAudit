@@ -16,7 +16,6 @@ const NAV_LINKS = [
   { to: '/approach', label: 'Approach' },
   { to: '/platform', label: 'Platform' },
   { to: '/pricing', label: 'Pricing' },
-  { to: '/case-studies', label: 'Case Studies' },
 ];
 
 const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {

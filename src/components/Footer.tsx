@@ -21,7 +21,6 @@ const Footer: React.FC = () => {
               { label: 'How It Works', to: '/approach' },
               { label: 'Platform', to: '/platform' },
               { label: 'Pricing', to: '/pricing' },
-              { label: 'Case Studies', to: '/case-studies' },
               { label: 'Contact', to: '#' },
             ].map((link) => (
               <Link key={link.label} to={link.to} className="text-slate-400 text-sm hover:text-white transition-colors">
