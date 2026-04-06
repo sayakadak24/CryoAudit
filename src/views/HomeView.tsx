@@ -14,21 +14,21 @@ const PILLAR_CARDS = [
     icon: 'gavel',
     iconColor: 'text-primary',
     title: 'Every Handoff is a Legal Checkpoint',
-    body: 'When goods change hands — warehouse to transporter, transporter to distributor — CryoTrack creates a cryptographic checkpoint. The moment the receiving party accepts, liability transfers. Automatically. Immutably. No disputes about "who knew what."',
+    body: 'When goods change hands, from warehouse to transporter or transporter to distributor, CryoTrack creates a cryptographic checkpoint. The moment the receiving party accepts, liability transfers. Automatically. Immutably. No disputes about "who knew what."',
     dark: false,
   },
   {
     icon: 'smart_toy',
     iconColor: 'text-tertiary',
     title: 'AI That Catches What Eyes Miss',
-    body: 'Before your team accepts a shipment, our AI cross-checks temperature data against live weather conditions, route timing, and your SLA thresholds — and explains in plain language what it found. Not an opaque score. A clear reason.',
+    body: 'Before your team accepts a shipment, our AI cross-checks temperature data against live weather conditions, route timing, and your SLA thresholds, and explains in plain language what it found. Not an opaque score. A clear reason.',
     dark: false,
   },
   {
     icon: 'smartphone',
     iconColor: 'text-white',
     title: 'Works for a Farmer. Works for a Fortune 500.',
-    body: 'No enterprise software needed. A warehouse operator in Nashik uses the same network as a pharma distributor in Mumbai — through a simple mobile app that works even without internet.',
+    body: 'No enterprise software needed. A warehouse operator in Nashik uses the same network as a pharma distributor in Mumbai through a simple mobile app that works even without internet.',
     dark: true,
   },
 ];
@@ -45,60 +45,81 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
     <main className="pt-20">
 
       {/* HERO */}
-      <section className="relative min-h-[921px] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]" />
-        </div>
+      {/* HERO */}
+      <section className="relative h-[850px] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
 
-        <div className="relative z-10 w-full max-w-5xl aspect-[21/9] mb-12 rounded-[2rem] overflow-hidden bg-surface-container-low shadow-[0px_24px_48px_rgba(11,28,48,0.08)]">
-          <img
-            className="w-full h-full object-fit"
-            data-alt="Futuristic supply chain warehouse with glowing data nodes"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9s75Yb_KH1wGgCuVSddeHKE8tf21tXv9RYv4LCUqD_dFNyNYujESNv9c0CkeRee2_1fHndYUY5vVRTjvoRek4auWqb1rYnQXLYYKQ42p1dlAJan8xX3Rpm9mOawZ7df2pAYhAp4BLmDH0FKOy-U1I2_G6S1PbQOMca9NS6gZURqNHZLeLcxV6n-6w_znULiIriThIRT7b3MXAYJW2P_GXyXF-pcrsMef17a5NMCbztuqjPfiMPAiyiIqntElPH-UjaQ8polf93A"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent" />
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 flex-wrap justify-center">
+        {/* Video — full section background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+
+        {/* Balanced overlay — dark enough for readability, video still visible */}
+        <div className="absolute inset-0 z-10 bg-slate-900/70" />
+
+        {/* Sharp vignette edges for enterprise depth */}
+        <div className="absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)'
+          }}
+        />
+
+        {/* Content Container — Perfectly Centered */}
+        <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center h-full">
+
+          {/* Trust badges — tight row above headline */}
+          <div className="flex gap-2 flex-wrap justify-center mb-8">
             {TRUST_BADGES.map(({ icon, label, color }) => (
-              <div key={label} className="px-4 py-2 bg-white/80 backdrop-blur-md rounded-full flex items-center gap-2 shadow-sm">
-                <span className={`material-symbols-outlined ${color} text-sm`} style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-on-surface">{label}</span>
+              <div
+                key={label}
+                className="px-3 py-1.5 flex items-center gap-1.5 rounded-md border border-white/20 bg-white/5 backdrop-blur-sm"
+              >
+                <span
+                  className={`material-symbols-outlined ${color} text-sm`}
+                  style={{ fontVariationSettings: "'FILL' 1", fontSize: '14px' }}
+                >
+                  {icon}
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-white/70">
+                  {label}
+                </span>
               </div>
             ))}
           </div>
-        </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
             Your Supply Chain Is Only as Honest as{' '}
-            <span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-tertiary-fixed-dim bg-clip-text text-transparent">
               Its Weakest Link.
             </span>
           </h1>
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
-            CryoTrack makes every handoff in your supply chain tamper-proof — from the cold storage to the last mile — so you always know who's responsible, and why.
+
+          {/* Thin rule — enterprise detail */}
+          <div className="w-16 h-px bg-white/20 mb-6" />
+
+          {/* Subheadline */}
+          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+            CryoTrack makes every handoff in your supply chain tamper-proof, from cold
+            storage to the last mile, so you always know who\'s responsible and why.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
             <button
               onClick={onCtaClick}
-              className="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-xl text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/20"
+              className="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-lg text-base font-bold tracking-wide hover:scale-105 transition-transform shadow-lg shadow-primary/30"
             >
               Request a Demo
             </button>
-            <button className="w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-bold text-primary hover:bg-surface-container-high transition-colors">
-              See How It Works
+            <button className="w-full sm:w-auto px-10 py-4 rounded-lg text-base font-bold text-white/80 tracking-wide border border-white/20 hover:border-white/40 hover:text-white hover:bg-white/5 transition-all">
+              See How It Works →
             </button>
           </div>
-        </div>
 
-        {/* Trust bar */}
-        <div className="relative z-10 mt-16 flex flex-wrap items-center justify-center gap-8 opacity-50">
-          {['Built on Hyperledger Fabric', 'FSSAI & ULIP Aligned', 'DPDP Act 2023', 'NBF 2024'].map((text, i, arr) => (
-            <React.Fragment key={text}>
-              <span className="text-sm font-bold tracking-widest uppercase">{text}</span>
-              {i < arr.length - 1 && <span className="w-1 h-1 rounded-full bg-on-surface-variant" />}
-            </React.Fragment>
-          ))}
         </div>
       </section>
 
@@ -129,11 +150,10 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
           {PILLAR_CARDS.map(({ icon, iconColor, title, body, dark }) => (
             <div
               key={title}
-              className={`rounded-[2rem] p-10 flex flex-col group transition-shadow relative overflow-hidden ${
-                dark
-                  ? 'bg-primary text-white hover:shadow-lg'
-                  : 'bg-surface-container-lowest shadow-sm border border-outline-variant/10 hover:shadow-md'
-              }`}
+              className={`rounded-[2rem] p-10 flex flex-col group transition-shadow relative overflow-hidden ${dark
+                ? 'bg-primary text-white hover:shadow-lg'
+                : 'bg-surface-container-lowest shadow-sm border border-outline-variant/10 hover:shadow-md'
+                }`}
             >
               <span
                 className={`material-symbols-outlined text-4xl mb-6 ${iconColor}`}
@@ -141,8 +161,8 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
               >
                 {icon}
               </span>
-              <h3 className="text-2xl font-bold mb-4">{title}</h3>
-              <p className={`leading-relaxed flex-grow ${dark ? 'text-primary-fixed-dim' : 'text-on-surface-variant'}`}>
+              <h3 className="text-2xl font-bold mb-4 text-justify">{title}</h3>
+              <p className={`leading-relaxed flex-grow text-justify ${dark ? 'text-primary-fixed-dim' : 'text-on-surface-variant'}`}>
                 {body}
               </p>
               {dark && <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full blur-2xl" />}
@@ -162,13 +182,13 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
             {FRAMEWORK_CARDS.map(({ icon, title, desc }) => (
               <div key={title} className="bg-white rounded-[1.5rem] p-8 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
                 <span
-                  className="material-symbols-outlined text-primary text-3xl mb-4"
+                  className="material-symbols-outlined text-primary text-3xl mb-4 text-justify"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   {icon}
                 </span>
-                <h4 className="font-bold text-on-surface text-lg mb-2">{title}</h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{desc}</p>
+                <h4 className="font-bold text-on-surface text-lg mb-2 text-justify">{title}</h4>
+                <p className="text-sm text-on-surface-variant leading-relaxed text-justify">{desc}</p>
               </div>
             ))}
           </div>

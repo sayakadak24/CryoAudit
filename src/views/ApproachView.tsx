@@ -9,21 +9,21 @@ const industries = [
     label: 'Pharmaceuticals & Healthcare',
     icon: 'vaccines',
     headline: 'A contaminated batch with clean paperwork is a tragedy waiting to happen.',
-    body: "CryoTrack embeds CDSCO and FSSAI compliance thresholds directly into every shipment's rules — so compliance isn't checked at the end, it's enforced throughout. From manufacturer to pharmacy, every step is verified and every actor is accountable.",
-    quote: '"From manufacturer to pharmacy — every step verified, every actor accountable."',
+    body: "CryoTrack embeds CDSCO and FSSAI compliance thresholds directly into every shipment's rules, so compliance isn't checked at the end, it's enforced throughout. From manufacturer to pharmacy, every step is verified and every actor is accountable.",
+    quote: '"From manufacturer to pharmacy, every step verified, every actor accountable."',
   },
   {
     label: 'Food & Agriculture',
     icon: 'agriculture',
     headline: 'Your crop leaves the farm in perfect condition. What happens on the truck is invisible to you.',
-    body: "With CryoTrack, every transit leg is temperature-verified, route-validated, and dispute-ready — giving exporters and distributors a tamper-proof record from farm to shelf. Stop losing margins to supply chain failures you can't even see.",
+    body: "With CryoTrack, every transit leg is temperature-verified, route-validated, and dispute-ready, giving exporters and distributors a tamper-proof record from farm to shelf. Stop losing margins to supply chain failures you can't even see.",
     quote: '"Stop losing margins to supply chain failures you can\'t even see."',
   },
   {
     label: 'Cold Chain Logistics',
     icon: 'local_shipping',
     headline: "Your reefer van's sensor says it was fine. But was it?",
-    body: 'CryoTrack cross-references your telemetry against real-time weather data and transit duration — catching failures that manual logs never would. Every temperature record becomes a verified, time-stamped proof, not a figure someone typed in.',
+    body: 'CryoTrack cross-references your telemetry against real-time weather data and transit duration, catching failures that manual logs never would. Every temperature record becomes a verified, time-stamped proof, not a figure someone typed in.',
     quote: '"The cold chain is only cold if someone can prove it."',
   },
 ];
@@ -32,21 +32,21 @@ const STEPS = [
   {
     num: '01',
     title: 'Digitise at Origin',
-    body: 'Goods are logged at source — with QR codes, photo proofs, and temperature readings. This creates an unalterable digital record of the shipment. No manual estimate. No fudged logbook.',
+    body: 'Goods are logged at source, with QR codes, photo proofs, and temperature readings. This creates an unalterable digital record of the shipment. No manual estimate. No fudged logbook.',
     footer: <><span className="material-symbols-outlined text-sm">qr_code_scanner</span> Scan. Log. Lock.</>,
     variant: 'default' as const,
   },
   {
     num: '02',
     title: 'Verify at Every Handoff',
-    body: 'At each transfer point, the receiving actor scans, verifies, and either accepts or flags. Our AI checks anomalies before acceptance. The ledger records everything — permanently. The moment you accept, you own the liability.',
+    body: 'At each transfer point, the receiving actor scans, verifies, and either accepts or flags. Our AI checks anomalies before acceptance. The ledger records everything permanently. The moment you accept, you own the liability.',
     footer: null,
     variant: 'primary' as const,
   },
   {
     num: '03',
     title: 'Trace Instantly. Resolve Fairly.',
-    body: "If something goes wrong, you know exactly where, when, and who was responsible — in seconds, not weeks. Disputes are settled with evidence, not arguments. No more \"it was fine when it left us.\"",
+    body: "If something goes wrong, you know exactly where, when, and who was responsible in seconds, not weeks. Disputes are settled with evidence, not arguments. No more \"it was fine when it left us.\"",
     footer: (
       <div className="flex items-center gap-2">
         <span className="material-symbols-outlined text-tertiary text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>timer</span>
@@ -72,8 +72,8 @@ const ApproachView: React.FC<ViewProps> = ({ onCtaClick }) => {
               We Don't Just Record What Happens.{' '}
               <span className="text-gradient">We Make Sure What's Recorded Is True.</span>
             </h1>
-            <p className="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-xl">
-              CryoTrack is not a monitoring tool. It's a trust protocol — a system where faking data is harder than doing the right thing, for every actor in the chain.
+            <p className="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-xl text-justify">
+              CryoTrack is not a monitoring tool. It's a trust protocol, a system where faking data is harder than doing the right thing, for every actor in the chain.
             </p>
             <div className="flex gap-4">
               {[
@@ -150,7 +150,7 @@ const ApproachView: React.FC<ViewProps> = ({ onCtaClick }) => {
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-4">{title}</h3>
-                  <p className={variant === 'primary' ? 'text-blue-100' : 'text-on-surface-variant'}>{body}</p>
+                  <p className={`${variant === 'primary' ? 'text-blue-100' : 'text-on-surface-variant'} text-justify`}>{body}</p>
                 </div>
 
                 {variant === 'primary' ? (
@@ -200,7 +200,7 @@ const ApproachView: React.FC<ViewProps> = ({ onCtaClick }) => {
 
         <div className="bg-surface-container-lowest rounded-[2rem] p-12 shadow-sm border border-outline-variant/10">
           <h3 className="text-3xl font-bold mb-4 text-on-surface">{industries[activeTab].headline}</h3>
-          <p className="text-on-surface-variant leading-relaxed text-lg mb-8 max-w-2xl">{industries[activeTab].body}</p>
+          <p className="text-on-surface-variant leading-relaxed text-lg mb-8 max-w-2xl text-justify">{industries[activeTab].body}</p>
           <blockquote className="border-l-4 border-primary pl-6 italic text-on-surface text-xl font-medium">
             {industries[activeTab].quote}
           </blockquote>

@@ -26,7 +26,7 @@ const ARCH_FEATURES = [
   {
     icon: 'extension',
     title: 'Dynamic Industry Modules',
-    description: 'Easily expand from Pharma to Agri. Pre-built SLAs for different asset classes dynamically adjust the AI and validation thresholds — without custom development.',
+    description: 'Easily expand from Pharma to Agri. Pre-built SLAs for different asset classes dynamically adjust the AI and validation thresholds without custom development.',
   },
   {
     icon: 'api',
@@ -52,8 +52,8 @@ const PlatformView: React.FC<ViewProps> = ({ onCtaClick }) => {
             <h1 className="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-[1.1] mb-6">
               One Protocol.<br /><span className="gradient-text">Every Actor in Your Chain.</span>
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-lg mb-8">
-              Enterprises connect via API. MSMEs connect via mobile app. Both use the same tamper-proof network — without either changing how they work today.
+            <p className="text-lg text-secondary leading-relaxed max-w-lg mb-8 text-justify">
+              Enterprises connect via API, while MSMEs connect via mobile app. Both use the same tamper-proof network, without either changing how they work today.
             </p>
             <div className="flex gap-4 flex-wrap">
               <button
@@ -114,8 +114,8 @@ const PlatformView: React.FC<ViewProps> = ({ onCtaClick }) => {
               <div>
                 <div className="inline-block px-4 py-1.5 bg-primary/5 text-primary rounded-full text-xs font-bold mb-8 uppercase tracking-widest">For Enterprises</div>
                 <h3 className="text-3xl font-bold mb-4">Your ERP. Our Trust Layer.</h3>
-                <p className="text-on-surface-variant leading-relaxed mb-8">
-                  Integrate CryoTrack directly with your existing ERP or warehouse management system via our API. Get a real-time dashboard, compliance reports, and verified audit trails — without changing how your team works.
+                <p className="text-on-surface-variant leading-relaxed mb-8 text-justify">
+                  Integrate CryoTrack directly with your existing ERP or warehouse management system via our API. Get a real-time dashboard, compliance reports, and verified audit trails, without changing how your team works.
                 </p>
                 <CheckList items={ENTERPRISE_FEATURES} className="mb-8" />
               </div>
@@ -128,7 +128,7 @@ const PlatformView: React.FC<ViewProps> = ({ onCtaClick }) => {
               <div className="relative z-10">
                 <div className="inline-block px-4 py-1.5 bg-white/20 text-white rounded-full text-xs font-bold mb-8 uppercase tracking-widest">For MSMEs & Ground Operators</div>
                 <h3 className="text-3xl font-bold mb-4">Download. Scan. Done.</h3>
-                <p className="text-blue-100 leading-relaxed mb-8">
+                <p className="text-blue-100 leading-relaxed mb-8 text-justify">
                   Download the app. Scan a QR. Accept or dispute a shipment. That's it. No IT team needed. Works on any Android phone. Works without internet in cold storages.
                 </p>
                 <CheckList items={MSME_FEATURES} iconColor="text-tertiary-fixed" textColor="text-blue-100" className="mb-8" />
@@ -183,9 +183,8 @@ const PlatformView: React.FC<ViewProps> = ({ onCtaClick }) => {
 
       {/* BOTTOM CTA */}
       <section className="py-24 px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <CtaBanner
-            variant="surface"
             heading={<>Ready to fortify your <br />global supply chain?</>}
             subtext="Join leading pharma corridors and major agricultural exporters already using CryoTrack."
             primaryLabel="Request Platform Demo"

@@ -20,7 +20,7 @@ const COST_ITEMS = [
     icon: 'gavel',
     iconColor: 'text-primary',
     title: 'Regulatory Fines & Recalls',
-    desc: 'Incomplete audit trails lead to massive penalties during FSSAI, CDSCO, or FDA inspections — even when the failure wasn\'t yours.',
+    desc: 'Incomplete audit trails lead to massive penalties during FSSAI, CDSCO, or FDA inspections, even when the failure wasn\'t yours.',
   },
   {
     icon: 'trending_down',
@@ -49,8 +49,8 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
               ₹2.5 Lakh Crore Lost Every Year.<br />
               <span className="text-error">And Someone Is Always "Not Responsible."</span>
             </h1>
-            <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10">
-              India loses an estimated 40% of its food and agricultural produce before it reaches the shelf. In pharma, contaminated supply chains have cost children their lives — in India and abroad. And in every case, the paperwork looked fine.
+            <p className="text-lg text-secondary leading-relaxed max-w-2xl mb-10 text-justify">
+              India loses an estimated 40% of its food and agricultural produce before it reaches the shelf. In pharma, contaminated supply chains have cost children their lives in India and abroad. And in every case, the paperwork looked fine.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               {STAT_MINI.map(({ value, label, color }) => (
@@ -87,9 +87,9 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">The GIGO Problem Is Everywhere</h2>
-            <p className="text-slate-300 text-lg leading-relaxed">
+            <p className="text-slate-300 text-lg leading-relaxed text-justify">
               Manual logs get faked. Cheap sensors get moved. Cold chain failures get hidden. And when something goes wrong, everyone points at someone else. This is{' '}
-              <span className="text-white font-bold">Garbage In, Garbage Out</span> — and it silently runs through 94% of India's undigitised supply chain every single day.
+              <span className="text-white font-bold">Garbage In, Garbage Out</span> and it silently runs through 94% of India's undigitised supply chain every single day.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -98,10 +98,10 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
               <div className="relative z-10">
                 <span className="material-symbols-outlined text-red-400 text-5xl mb-6">edit_note</span>
                 <h3 className="text-2xl font-bold mb-4">The GIGO Breach</h3>
-                <p className="text-slate-300 leading-relaxed max-w-md">
+                <p className="text-slate-300 leading-relaxed max-w-md text-justify">
                   "Garbage In, Garbage Out." Manual data entry allows for falsified logs. Historically, this has led to tragedies like{' '}
                   <span className="text-white font-bold">The Gambia (2022)</span> and{' '}
-                  <span className="text-white font-bold">Ramnagar (2020)</span>, where batch integrity was compromised at the source — and the paperwork looked clean throughout.
+                  <span className="text-white font-bold">Ramnagar (2020)</span>, where batch integrity was compromised at the source and the paperwork looked clean throughout.
                 </p>
               </div>
               <div className="absolute top-0 right-0 w-1/2 h-full opacity-20">
@@ -119,15 +119,15 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
             ].map(({ icon, color, title, body }) => (
               <div key={title} className="bg-slate-800/60 backdrop-blur-md rounded-3xl p-10 border border-white/10">
                 <span className={`material-symbols-outlined ${color} text-5xl mb-6`}>{icon}</span>
-                <h3 className="text-2xl font-bold mb-4">{title}</h3>
-                <p className="text-slate-300 leading-relaxed text-sm">{body}</p>
+                <h3 className="text-2xl font-bold mb-4 text-justify">{title}</h3>
+                <p className="text-slate-300 leading-relaxed text-sm text-justify">{body}</p>
               </div>
             ))}
 
             <div className="md:col-span-2 bg-slate-800/50 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border border-white/10">
               <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-4">A Patchwork of Broken Systems</h3>
-                <p className="text-slate-300 leading-relaxed">
+                <h3 className="text-2xl font-bold mb-4 text-justify">A Patchwork of Broken Systems</h3>
+                <p className="text-slate-300 leading-relaxed text-justify">
                   Most supply chains use a combination of different sensors, WhatsApp messages, Excel sheets, and manual logbooks. This fragmentation is exactly where goods spoil, fraud hides, and accountability disappears.
                 </p>
               </div>
@@ -158,8 +158,8 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
                       <span className={`material-symbols-outlined ${iconColor}`} style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
                     </div>
                     <div>
-                      <h4 className="font-bold text-on-surface">{title}</h4>
-                      <p className="text-sm text-secondary">{desc}</p>
+                      <h4 className="font-bold text-on-surface text-justify">{title}</h4>
+                      <p className="text-sm text-secondary text-justify">{desc}</p>
                     </div>
                   </div>
                 ))}
@@ -185,23 +185,23 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
                 ))}
               </div>
               <div className="mt-10 p-4 bg-primary/5 rounded-xl border border-primary/10">
-                <p className="text-xs font-medium text-primary">India's supply chain is not underfunded — it's unaccountable. CryoTrack changes that.</p>
+                <p className="text-xs font-medium text-primary">India's supply chain is not underfunded. It's unaccountable. CryoTrack changes that.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 px-8 text-center max-w-4xl mx-auto">
-        <h2 className="text-4xl font-extrabold mb-6">Stop Guessing. Start Knowing.</h2>
-        <p className="text-lg text-secondary mb-10">The era of passive logging is over. It's time to secure your supply chain with active, verifiable intelligence.</p>
-        <button
-          onClick={onCtaClick}
-          className="bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          See Our Solution
-        </button>
+      {/* BOTTOM CTA */}
+      <section className="py-24 px-8">
+        <div className="max-w-7xl mx-auto">
+          <CtaBanner
+            heading="Stop Guessing. Start Knowing."
+            subtext="The era of passive logging is over. It's time to secure your supply chain with active, verifiable intelligence."
+            primaryLabel="See Our Solution"
+            onPrimary={onCtaClick}
+          />
+        </div>
       </section>
     </main>
   );

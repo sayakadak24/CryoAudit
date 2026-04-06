@@ -2,6 +2,7 @@ import React from 'react';
 import type { ViewProps } from '../types';
 import PillBadge from '../components/ui/PillBadge';
 import CheckList from '../components/ui/CheckList';
+import CtaBanner from '../components/ui/CtaBanner';
 
 const PLANS = [
   {
@@ -71,8 +72,8 @@ const PricingView: React.FC<ViewProps> = ({ onCtaClick }) => {
           <h1 className="text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-on-surface mb-6">
             Zero-Fee for MSMEs. <span className="text-primary">Predictable Pricing for Enterprises.</span>
           </h1>
-          <p className="text-lg text-secondary font-medium leading-relaxed max-w-2xl">
-            Unlike traditional platforms that charge per transaction, CryoTrack runs on Hyperledger — meaning no gas fees, no variable costs, no surprises.
+          <p className="text-lg text-secondary font-medium leading-relaxed max-w-2xl text-justify">
+            Unlike traditional platforms that charge per transaction, CryoTrack runs on Hyperledger, meaning no gas fees, no variable costs, no surprises.
           </p>
         </div>
       </section>
@@ -172,35 +173,15 @@ const PricingView: React.FC<ViewProps> = ({ onCtaClick }) => {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
-          <div className="md:col-span-5 rounded-[2.5rem] overflow-hidden relative min-h-[400px]">
-            <img
-              alt="India supply chain"
-              className="absolute inset-0 w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuABj04Lls4sDC42ADBR6VCETMPcglRn3-0UHhYGCCIZvT5KCAa0XfN1LbjVkinXNWFqHaQMkwWYEttp4JO4N6pwoLeKShhCKZWhyyM1IwJiFWUX3iJMq2mwqVnjkvSSm9SKo_7UVLlHFw6RI8FbJJKWWQAGjB0BORY1kfUrzlJ2vVOO8jF2JPht1kVQ_regnxogUbetthTphs59Pr-QlAqx0WfKKf26kH7f0SYbuykXeofqy15wU2U9jLVXyWixykMyxWZrfgBsI4w"
-            />
-            <div className="absolute inset-0 bg-primary/20" />
-          </div>
-          <div className="md:col-span-7 bg-surface-container-high rounded-[2.5rem] p-12 flex flex-col justify-center">
-            <h2 className="text-4xl font-extrabold tracking-tight mb-6 leading-tight">
-              Not Sure Which Plan? <span className="text-primary">We'll Map It For You.</span>
-            </h2>
-            <p className="text-lg text-secondary mb-10 leading-relaxed">
-              Tell us about your supply chain. We'll recommend the right plan and run a pilot with your team before a single rupee is spent.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                className="px-8 py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-white font-bold text-lg hover:scale-105 transition-transform shadow-xl shadow-primary/25"
-                onClick={onCtaClick}
-              >
-                Request a Free Consultation
-              </button>
-              <button className="px-8 py-4 rounded-xl bg-white text-on-surface font-bold text-lg border border-outline-variant hover:bg-surface-container-lowest transition-colors">
-                Download Pricing PDF
-              </button>
-            </div>
-          </div>
+      <section className="py-24 px-8">
+        <div className="max-w-7xl mx-auto">
+          <CtaBanner
+            heading={<>Not Sure Which Plan? <br />We'll Map It For You.</>}
+            subtext="Tell us about your supply chain. We'll recommend the right plan and run a pilot with your team before a single rupee is spent."
+            primaryLabel="Request a Free Consultation"
+            onPrimary={onCtaClick}
+            secondaryLabel="Download Pricing PDF"
+          />
         </div>
       </section>
     </main>
