@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
         {/* DIVIDER */}
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>
-            <p className="text-slate-400 text-sm font-semibold">CryoTrack — <span className="text-slate-500 font-normal">Supply Chain Trust Infrastructure, Built for the Real World.</span></p>
+            <p className="text-slate-400 text-sm font-semibold">CryoTrack, <span className="text-slate-500 font-normal">Supply Chain Trust Infrastructure, Built for the Real World.</span></p>
             <p className="text-slate-600 text-xs mt-1 uppercase tracking-widest font-bold">GURUGRAM, INDIA · SERVING GLOBAL SUPPLY CHAINS</p>
           </div>
           <p className="text-slate-600 text-xs uppercase tracking-widest font-bold shrink-0">

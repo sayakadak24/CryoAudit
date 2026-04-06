@@ -37,27 +37,24 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
             <span className="text-white">Automate</span> <span className="bg-gradient-to-r from-purple-500 to-teal-400 bg-clip-text text-transparent">Trust.</span>
           </h1>
           <p className="text-xl md:text-2xl leading-normal text-slate-300 mx-auto mb-8 max-w-3xl">
-            The universal blockchain infrastructure securing supply chains
-            <span className="block mt-1 md:mt-2">
-              across{' '}
-              <span className="inline-grid align-top text-center font-bold">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="col-start-1 row-start-1 whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400"
-                  >
-                    {INDUSTRIES[index]}
-                  </motion.span>
-                </AnimatePresence>
-                {/* Invisible placeholder matching the widest text to maintain fixed inline width */}
-                <span className="col-start-1 row-start-1 invisible whitespace-nowrap">Agriculture</span>
-              </span>{' '}
-              and beyond.
-            </span>
+            The universal blockchain infrastructure securing supply chains across{' '}
+            <span className="inline-grid align-top text-center font-bold">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="col-start-1 row-start-1 whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400"
+                >
+                  {INDUSTRIES[index]}
+                </motion.span>
+              </AnimatePresence>
+              {/* Invisible placeholder matching the widest text to maintain fixed inline width */}
+              <span className="col-start-1 row-start-1 invisible whitespace-nowrap">Agriculture</span>
+            </span>{' '}
+            and beyond.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 z-20 relative">
             <button

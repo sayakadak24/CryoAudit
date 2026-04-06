@@ -27,7 +27,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
     </div>
     <div>
       <h4 className="text-lg font-bold mb-1">{title}</h4>
-      <p className="text-slate-500 text-sm">{description}</p>
+      <p className="text-slate-500 text-sm text-justify">{description}</p>
     </div>
   </div>
 );

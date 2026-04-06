@@ -15,21 +15,21 @@ const PILLAR_CARDS = [
     icon: 'gavel',
     iconColor: 'text-primary',
     title: 'Every Handoff is a Legal Checkpoint',
-    body: 'When goods change hands — warehouse to transporter, transporter to distributor — CryoTrack creates a cryptographic checkpoint. The moment the receiving party accepts, liability transfers. Automatically. Immutably. No disputes about "who knew what."',
+    body: 'When goods change hands, from warehouse to transporter or transporter to distributor, CryoTrack creates a cryptographic checkpoint. The moment the receiving party accepts, liability transfers. Automatically. Immutably. No disputes about "who knew what."',
     dark: false,
   },
   {
     icon: 'smart_toy',
     iconColor: 'text-tertiary',
     title: 'AI That Catches What Eyes Miss',
-    body: 'Before your team accepts a shipment, our AI cross-checks temperature data against live weather conditions, route timing, and your SLA thresholds — and explains in plain language what it found. Not an opaque score. A clear reason.',
+    body: 'Before your team accepts a shipment, our AI cross-checks temperature data against live weather conditions, route timing, and your SLA thresholds, and explains in plain language what it found. Not an opaque score. A clear reason.',
     dark: false,
   },
   {
     icon: 'smartphone',
     iconColor: 'text-white',
     title: 'Works for a Farmer. Works for a Fortune 500.',
-    body: 'No enterprise software needed. A warehouse operator in Nashik uses the same network as a pharma distributor in Mumbai — through a simple mobile app that works even without internet.',
+    body: 'No enterprise software needed. A warehouse operator in Nashik uses the same network as a pharma distributor in Mumbai through a simple mobile app that works even without internet.',
     dark: true,
   },
 ];
@@ -45,7 +45,88 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
   return (
     <main className="pt-20">
 
+<<<<<<< HEAD
       <Hero onCtaClick={onCtaClick || (() => {})} />
+=======
+      {/* HERO */}
+      {/* HERO */}
+      <section className="relative h-[100vh] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
+
+        {/* Video — full section background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+
+        {/* Balanced overlay — dark enough for readability, video still visible */}
+        <div className="absolute inset-0 z-10 bg-slate-900/70" />
+
+        {/* Sharp vignette edges for enterprise depth */}
+        <div className="absolute inset-0 z-10"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.3) 100%)'
+          }}
+        />
+
+        {/* Content Container — Perfectly Centered */}
+        <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center h-full">
+
+          {/* Trust badges — tight row above headline */}
+          <div className="flex gap-2 flex-wrap justify-center mb-8">
+            {TRUST_BADGES.map(({ icon, label, color }) => (
+              <div
+                key={label}
+                className="px-3 py-1.5 flex items-center gap-1.5 rounded-md border border-white/20 bg-white/5 backdrop-blur-sm"
+              >
+                <span
+                  className={`material-symbols-outlined ${color} text-sm`}
+                  style={{ fontVariationSettings: "'FILL' 1", fontSize: '14px' }}
+                >
+                  {icon}
+                </span>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-white/70">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.08]">
+            Your Supply Chain Is Only as Honest as{' '}
+            <span className="bg-gradient-to-r from-primary to-tertiary-fixed-dim bg-clip-text text-transparent">
+              Its Weakest Link.
+            </span>
+          </h1>
+
+          {/* Thin rule — enterprise detail */}
+          <div className="w-16 h-px bg-white/20 mb-6" />
+
+          {/* Subheadline */}
+          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+            CryoTrack makes every handoff in your supply chain tamper-proof, from cold
+            storage to the last mile, so you always know who\'s responsible and why.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+            <button
+              onClick={onCtaClick}
+              className="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-lg text-base font-bold tracking-wide hover:scale-105 transition-transform shadow-lg shadow-primary/30"
+            >
+              Request a Demo
+            </button>
+            <button className="w-full sm:w-auto px-10 py-4 rounded-lg text-base font-bold text-white/80 tracking-wide border border-white/20 hover:border-white/40 hover:text-white hover:bg-white/5 transition-all">
+              See How It Works →
+            </button>
+          </div>
+
+        </div>
+      </section>
+>>>>>>> fcf80c2cc46c8edb0afaf63bd42925da34f40d21
 
       {/* PROBLEM STATS */}
       <section className="py-24 bg-surface-container-low relative">
@@ -74,11 +155,10 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
           {PILLAR_CARDS.map(({ icon, iconColor, title, body, dark }) => (
             <div
               key={title}
-              className={`rounded-[2rem] p-10 flex flex-col group transition-shadow relative overflow-hidden ${
-                dark
-                  ? 'bg-primary text-white hover:shadow-lg'
-                  : 'bg-surface-container-lowest shadow-sm border border-outline-variant/10 hover:shadow-md'
-              }`}
+              className={`rounded-[2rem] p-10 flex flex-col group transition-shadow relative overflow-hidden ${dark
+                ? 'bg-primary text-white hover:shadow-lg'
+                : 'bg-surface-container-lowest shadow-sm border border-outline-variant/10 hover:shadow-md'
+                }`}
             >
               <span
                 className={`material-symbols-outlined text-4xl mb-6 ${iconColor}`}
@@ -86,8 +166,8 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
               >
                 {icon}
               </span>
-              <h3 className="text-2xl font-bold mb-4">{title}</h3>
-              <p className={`leading-relaxed flex-grow ${dark ? 'text-primary-fixed-dim' : 'text-on-surface-variant'}`}>
+              <h3 className="text-2xl font-bold mb-4 text-justify">{title}</h3>
+              <p className={`leading-relaxed flex-grow text-justify ${dark ? 'text-primary-fixed-dim' : 'text-on-surface-variant'}`}>
                 {body}
               </p>
               {dark && <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full blur-2xl" />}
@@ -107,13 +187,13 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
             {FRAMEWORK_CARDS.map(({ icon, title, desc }) => (
               <div key={title} className="bg-white rounded-[1.5rem] p-8 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow">
                 <span
-                  className="material-symbols-outlined text-primary text-3xl mb-4"
+                  className="material-symbols-outlined text-primary text-3xl mb-4 text-justify"
                   style={{ fontVariationSettings: "'FILL' 1" }}
                 >
                   {icon}
                 </span>
-                <h4 className="font-bold text-on-surface text-lg mb-2">{title}</h4>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{desc}</p>
+                <h4 className="font-bold text-on-surface text-lg mb-2 text-justify">{title}</h4>
+                <p className="text-sm text-on-surface-variant leading-relaxed text-justify">{desc}</p>
               </div>
             ))}
           </div>

@@ -19,8 +19,7 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Keep it dark while inside the Hero section (100vh height roughly)
-      setScrolled(window.scrollY > (window.innerHeight - 100));
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
