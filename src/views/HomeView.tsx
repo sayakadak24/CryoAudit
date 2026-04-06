@@ -46,7 +46,7 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
 
       {/* HERO */}
       {/* HERO */}
-      <section className="relative h-[850px] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
+      <section className="relative h-[100vh] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
 
         {/* Video — full section background */}
         <video
