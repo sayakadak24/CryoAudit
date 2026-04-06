@@ -64,7 +64,7 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
         {/* Sharp vignette edges for enterprise depth */}
         <div className="absolute inset-0 z-10"
           style={{
-            background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%)'
+            background: 'radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.3) 100%)'
           }}
         />
 

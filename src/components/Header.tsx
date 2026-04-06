@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
         <div className="flex items-center gap-10">
           <Link to="/" className="flex items-center gap-2">
             <img src="/logo.jpeg" alt="CryoTrack Logo" className="h-10 w-auto rounded-lg" />
-            <span className="text-2xl font-bold tracking-tight text-blue-800">CryoTrack</span>
+            <span className="text-2xl font-bold  text-[#0F59A8]">CryoTrack</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(({ to, label }) => (
@@ -36,14 +36,12 @@ const Header: React.FC<HeaderProps> = ({ onCtaClick }) => {
             ))}
           </div>
         </div>
-        
+
         <div className="hidden md:flex items-center gap-4">
-          <button className="px-5 py-2 text-slate-600 font-medium hover:text-blue-600 transition-colors opacity-80 hover:opacity-100">
-            Client Login
-          </button>
-          <button 
+
+          <button
             onClick={onCtaClick}
-            className="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-xl font-semibold hover:scale-102 transition-transform duration-200"
+            className="bg-gradient-to-br from-primary to-primary-container text-white px-6 py-2.5 rounded-lg font-semibold hover:scale-102 transition-transform duration-200"
           >
             Get Started
           </button>
