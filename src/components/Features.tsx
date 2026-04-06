@@ -5,7 +5,7 @@ import { Smartphone, ShieldCheck, BarChart3, Globe, CheckCircle2, ArrowRight } f
 
 const Features: React.FC = () => {
   return (
-    <section id="features" className="py-24 px-6 lg:px-12 bg-white relative overflow-hidden">
+    <section id="features" className="py-24 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ const Features: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-8 md:row-span-2 bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden group hover:shadow-xl transition-all duration-500 p-10 flex flex-col"
+            className="md:col-span-8 md:row-span-2 glass-panel rounded-3xl overflow-hidden group hover:-translate-y-1 transition-all duration-500 p-10 flex flex-col"
           >
             <div className="flex-1">
               <div className="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
@@ -43,7 +43,7 @@ const Features: React.FC = () => {
             </div>
             
             {/* Mini UI Simulation */}
-            <div className="mt-8 relative h-64 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-6">
+            <div className="mt-8 relative h-64 glass-card rounded-2xl overflow-hidden p-6">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></div>
@@ -81,7 +81,7 @@ const Features: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="md:col-span-4 md:row-span-1 bg-brand-600 rounded-3xl p-8 text-white flex flex-col justify-between group hover:shadow-xl transition-all duration-500"
+            className="md:col-span-4 md:row-span-1 bg-blue-600/80 backdrop-blur-md border border-blue-400/30 shadow-[0_8px_32px_0_rgba(37,99,235,0.2)] rounded-3xl p-8 text-white flex flex-col justify-between group hover:-translate-y-1 transition-all duration-500"
           >
             <div>
               <BarChart3 className="w-8 h-8 mb-4 opacity-80" />
@@ -99,7 +99,7 @@ const Features: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="md:col-span-4 md:row-span-1 bg-slate-900 rounded-3xl p-8 text-white flex flex-col justify-between group hover:shadow-xl transition-all duration-500"
+            className="md:col-span-4 md:row-span-1 glass-dark rounded-3xl p-8 text-white flex flex-col justify-between group hover:-translate-y-1 transition-all duration-500"
           >
             <div>
               <ShieldCheck className="w-8 h-8 mb-4 text-emerald-400" />
@@ -120,7 +120,7 @@ const Features: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-12 md:row-span-1 bg-slate-50 rounded-3xl border border-slate-200 p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:shadow-xl transition-all duration-500"
+            className="md:col-span-12 md:row-span-1 glass-panel rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:-translate-y-1 transition-all duration-500"
           >
             <div className="max-w-md">
               <div className="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center mb-4 text-slate-600">

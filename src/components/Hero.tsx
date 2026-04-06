@@ -1,68 +1,85 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import CryotrackAnimation from './CryotrackAnimation';
 
 interface HeroProps {
   onCtaClick: () => void;
 }
 
+const INDUSTRIES = ['Pharma', 'Agriculture', 'Dairy', 'Logistics'];
+
 const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % INDUSTRIES.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden bg-white pt-16 pb-20 lg:pt-28 lg:pb-32">
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+    <section className="relative pt-28 pb-16 lg:pt-32 lg:pb-20 bg-[#020617] border-b border-slate-800 flex flex-col justify-center min-h-screen lg:min-h-[90vh]">
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px]"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Deep blue glowing orbs for background richness */}
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-900/30 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-900/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/20 bg-blue-50 mb-8">
+          <div className="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-semibold leading-6 text-blue-300 ring-1 ring-inset ring-blue-500/30 bg-blue-900/40 backdrop-blur-md mb-6 shadow-sm">
             Now accepting early pilot partners
           </div>
-          <h1 className="text-5xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 leading-[1.1]">
-            The trust layer for <br/>
-            <span className="text-blue-600">Global Supply Chains</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] font-display">
+            <span className="text-white">Scale with</span> <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">Confidence.</span> <br/>
+            <span className="text-white">Automate</span> <span className="bg-gradient-to-r from-purple-500 to-teal-400 bg-clip-text text-transparent">Trust.</span>
           </h1>
-          <p className="text-xl leading-relaxed text-slate-600 mb-12 max-w-2xl mx-auto">
-            CryoTrack Solutions provides the infrastructure to eliminate data vulnerabilities across any supply chain. We move compliance from a manual task to an automated architectural layer.
+          <p className="text-xl md:text-2xl leading-normal text-slate-300 mx-auto mb-8 max-w-3xl">
+            The universal blockchain infrastructure securing supply chains
+            <span className="block mt-1 md:mt-2">
+              across{' '}
+              <span className="inline-grid align-top text-center font-bold">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                    className="col-start-1 row-start-1 whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400"
+                  >
+                    {INDUSTRIES[index]}
+                  </motion.span>
+                </AnimatePresence>
+                {/* Invisible placeholder matching the widest text to maintain fixed inline width */}
+                <span className="col-start-1 row-start-1 invisible whitespace-nowrap">Agriculture</span>
+              </span>{' '}
+              and beyond.
+            </span>
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12 z-20 relative">
             <button
               onClick={onCtaClick}
-              className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 hover:-translate-y-0.5 transition-all active:scale-95"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 transition-all active:scale-95 border border-blue-400/50"
             >
               Apply for Pilot Access
             </button>
             <Link
               to="/approach"
-              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
+              className="px-8 py-4 glass-dark text-white font-bold rounded-xl hover:bg-white/10 transition-all flex items-center justify-center group"
             >
               View Our Approach
             </Link>
           </div>
           
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
-              <span className="text-blue-600">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.040L3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622l-.382-3.016z" />
-                </svg>
-              </span>
-              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Audit-Ready Logic</span>
+          <div className="relative max-w-5xl mx-auto">
+            <div className="glass-dark p-2 sm:p-4 rounded-[2.5rem] shadow-[0_0_50px_rgba(37,99,235,0.15)] relative z-10 border border-white/10 bg-slate-900/60 backdrop-blur-2xl overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-50">
+               <CryotrackAnimation />
             </div>
-            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
-              <span className="text-blue-600">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
-              </span>
-              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Tamper-Proof Storage</span>
-            </div>
-            <div className="flex items-center justify-center gap-3 p-6 border border-slate-100 rounded-2xl bg-white shadow-sm">
-              <span className="text-blue-600">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
-              </span>
-              <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">Unified Data Capture</span>
-            </div>
+            {/* Soft glow behind the glass panel */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 to-purple-500/30 blur-3xl -z-10 rounded-full opacity-50"></div>
           </div>
         </div>
       </div>

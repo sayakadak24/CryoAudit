@@ -2,6 +2,7 @@ import React from 'react';
 import type { ViewProps } from '../types';
 import SectionHeader from '../components/ui/SectionHeader';
 import CtaBanner from '../components/ui/CtaBanner';
+import Hero from '../components/Hero';
 
 const TRUST_BADGES = [
   { icon: 'verified_user', label: 'Hyperledger Fabric', color: 'text-tertiary' },
@@ -44,63 +45,7 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
   return (
     <main className="pt-20">
 
-      {/* HERO */}
-      <section className="relative min-h-[921px] flex flex-col items-center justify-center overflow-hidden px-6 text-center">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-tertiary/10 rounded-full blur-[120px]" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-5xl aspect-[21/9] mb-12 rounded-[2rem] overflow-hidden bg-surface-container-low shadow-[0px_24px_48px_rgba(11,28,48,0.08)]">
-          <img
-            className="w-full h-full object-fit"
-            data-alt="Futuristic supply chain warehouse with glowing data nodes"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9s75Yb_KH1wGgCuVSddeHKE8tf21tXv9RYv4LCUqD_dFNyNYujESNv9c0CkeRee2_1fHndYUY5vVRTjvoRek4auWqb1rYnQXLYYKQ42p1dlAJan8xX3Rpm9mOawZ7df2pAYhAp4BLmDH0FKOy-U1I2_G6S1PbQOMca9NS6gZURqNHZLeLcxV6n-6w_znULiIriThIRT7b3MXAYJW2P_GXyXF-pcrsMef17a5NMCbztuqjPfiMPAiyiIqntElPH-UjaQ8polf93A"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low/80 to-transparent" />
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 flex-wrap justify-center">
-            {TRUST_BADGES.map(({ icon, label, color }) => (
-              <div key={label} className="px-4 py-2 bg-white/80 backdrop-blur-md rounded-full flex items-center gap-2 shadow-sm">
-                <span className={`material-symbols-outlined ${color} text-sm`} style={{ fontVariationSettings: "'FILL' 1" }}>{icon}</span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-on-surface">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-on-surface mb-6 leading-[1.1]">
-            Your Supply Chain Is Only as Honest as{' '}
-            <span className="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">
-              Its Weakest Link.
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
-            CryoTrack makes every handoff in your supply chain tamper-proof — from the cold storage to the last mile — so you always know who's responsible, and why.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={onCtaClick}
-              className="w-full sm:w-auto bg-gradient-to-br from-primary to-primary-container text-white px-10 py-4 rounded-xl text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/20"
-            >
-              Request a Demo
-            </button>
-            <button className="w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-bold text-primary hover:bg-surface-container-high transition-colors">
-              See How It Works
-            </button>
-          </div>
-        </div>
-
-        {/* Trust bar */}
-        <div className="relative z-10 mt-16 flex flex-wrap items-center justify-center gap-8 opacity-50">
-          {['Built on Hyperledger Fabric', 'FSSAI & ULIP Aligned', 'DPDP Act 2023', 'NBF 2024'].map((text, i, arr) => (
-            <React.Fragment key={text}>
-              <span className="text-sm font-bold tracking-widest uppercase">{text}</span>
-              {i < arr.length - 1 && <span className="w-1 h-1 rounded-full bg-on-surface-variant" />}
-            </React.Fragment>
-          ))}
-        </div>
-      </section>
+      <Hero onCtaClick={onCtaClick || (() => {})} />
 
       {/* PROBLEM STATS */}
       <section className="py-24 bg-surface-container-low relative">
