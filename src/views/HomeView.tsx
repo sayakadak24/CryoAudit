@@ -53,7 +53,7 @@ const HomeView: React.FC<ViewProps> = ({ onCtaClick }) => {
 
         <div className="relative z-10 w-full max-w-5xl aspect-[21/9] mb-12 rounded-[2rem] overflow-hidden bg-surface-container-low shadow-[0px_24px_48px_rgba(11,28,48,0.08)]">
           <img
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fit"
             data-alt="Futuristic supply chain warehouse with glowing data nodes"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9s75Yb_KH1wGgCuVSddeHKE8tf21tXv9RYv4LCUqD_dFNyNYujESNv9c0CkeRee2_1fHndYUY5vVRTjvoRek4auWqb1rYnQXLYYKQ42p1dlAJan8xX3Rpm9mOawZ7df2pAYhAp4BLmDH0FKOy-U1I2_G6S1PbQOMca9NS6gZURqNHZLeLcxV6n-6w_znULiIriThIRT7b3MXAYJW2P_GXyXF-pcrsMef17a5NMCbztuqjPfiMPAiyiIqntElPH-UjaQ8polf93A"
           />

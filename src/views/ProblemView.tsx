@@ -80,18 +80,21 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
       </section>
 
       {/* GIGO EXPLANATION */}
-      <section className="somber-gradient py-24 px-8 text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
+      <section className="bg-slate-900 py-24 px-8 text-white overflow-hidden relative">
+        {/* subtle ambient glows */}
+        <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-red-900/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold mb-6">The GIGO Problem Is Everywhere</h2>
-            <p className="text-slate-400 text-lg leading-relaxed">
+            <p className="text-slate-300 text-lg leading-relaxed">
               Manual logs get faked. Cheap sensors get moved. Cold chain failures get hidden. And when something goes wrong, everyone points at someone else. This is{' '}
               <span className="text-white font-bold">Garbage In, Garbage Out</span> — and it silently runs through 94% of India's undigitised supply chain every single day.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <div className="md:col-span-2 bg-slate-800/40 backdrop-blur-md rounded-3xl p-10 relative border border-white/5 overflow-hidden">
+            <div className="md:col-span-2 bg-slate-800/60 backdrop-blur-md rounded-3xl p-10 relative border border-white/10 overflow-hidden">
               <div className="relative z-10">
                 <span className="material-symbols-outlined text-red-400 text-5xl mb-6">edit_note</span>
                 <h3 className="text-2xl font-bold mb-4">The GIGO Breach</h3>
@@ -114,14 +117,14 @@ const ProblemView: React.FC<ViewProps> = ({ onCtaClick }) => {
               { icon: 'visibility_off', color: 'text-blue-400', title: 'The Handoff Black Hole', body: 'Every transfer between a transporter, a warehouse, and a distributor is a blind spot. If no one is forced to verify the state of goods, no one is accountable for what happens in between.' },
               { icon: 'assignment_late', color: 'text-amber-400', title: 'Zero Accountability', body: "When assets fail, legacy systems make it impossible to pinpoint the exact moment or person responsible. Compliance becomes a blame game, not a fact-finding exercise." },
             ].map(({ icon, color, title, body }) => (
-              <div key={title} className="bg-slate-800/40 backdrop-blur-md rounded-3xl p-10 border border-white/5">
+              <div key={title} className="bg-slate-800/60 backdrop-blur-md rounded-3xl p-10 border border-white/10">
                 <span className={`material-symbols-outlined ${color} text-5xl mb-6`}>{icon}</span>
                 <h3 className="text-2xl font-bold mb-4">{title}</h3>
                 <p className="text-slate-300 leading-relaxed text-sm">{body}</p>
               </div>
             ))}
 
-            <div className="md:col-span-2 bg-slate-900/60 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border border-white/5">
+            <div className="md:col-span-2 bg-slate-800/50 rounded-3xl p-10 flex flex-col md:flex-row items-center gap-10 border border-white/10">
               <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-4">A Patchwork of Broken Systems</h3>
                 <p className="text-slate-300 leading-relaxed">
